@@ -1,39 +1,20 @@
 <template>
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="#">網站名稱和LOGO</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">首頁</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#">季節景點</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="#">旅遊靈感</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              文化風采
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">藝文探索</a></li>
-              <li><a class="dropdown-item" href="#">傳統習俗</a></li>
-              <li><a class="dropdown-item" href="#">美食風情</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">關於我們</a>
-          </li>
+  <nav class="navbar">
+    <div class="container-fluid gx-0">
+      <div class="container d-flex justify-content-between">
+        <div class="d-inline-block">
+          <router-link to="/"><img src="@/assets/images/logo/logo.png" alt=""></router-link>
+        </div>
+        <ul class="">
+          <li class="nav-item"><router-link to="/">區域風景</router-link></li>
+          <li class="nav-item"><router-link to="/">季節景點</router-link></li>
+          <li class="nav-item"><router-link to="/">文化風采</router-link></li>
+          <li class="nav-item"><router-link to="/about">關於我們</router-link></li>
         </ul>
       </div>
     </div>
   </nav>
+  <!-- <a class="nav-link active" aria-current="page" href="#"><router-link to="/">首頁</router-link></a> -->
 </template>
 
 <script>
@@ -44,23 +25,39 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-$navbar-bg-color: rgba(45, 101, 255, 0.7);
+$primary-color: #68BE8D; //若竹色
+$secondary-color: #98D98E; //若綠
+$support-color: #FFA589;
+
+$navbar-bg-color: $primary-color;
 $navlink-color: rgb(255, 255, 255);
 
 .navbar {
-  background-color: $navbar-bg-color;
-
-  .navbar-brand {
-    color: $navlink-color;
+  height: 80px;
+  ul {
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
   }
-
   .nav-item {
+    list-style: none;
+    display: inline-block;
+  
     a {
-      color: $navlink-color;
+      text-decoration: none;
+      padding: 30px 15px;
     }
-    .dropdown-item{
-      color: black;
-    }
+    a:hover{
+        background-color: $primary-color;
+        color: white;
+      }
   }
 }
+
+
+// .router-link-exact-active {
+//   // text-decoration: none;
+// }
 </style>
