@@ -6,7 +6,7 @@
           <router-link to="/"><img src="@/assets/images/logo/logo.png" alt=""></router-link>
         </div>
         <ul class="">
-          <li class="nav-item"><router-link to="/">區域風景</router-link></li>
+          <li class="nav-item"><router-link to="/area">區域風景</router-link></li>
           <li class="nav-item"><router-link to="/">季節景點</router-link></li>
           <li class="nav-item"><router-link to="/">文化風采</router-link></li>
           <li class="nav-item"><router-link to="/about">關於我們</router-link></li>
@@ -46,6 +46,8 @@ $navlink-color: rgb(255, 255, 255);
     display: inline-block;
   
     a {
+      color: black;
+      font-weight: bold;
       text-decoration: none;
       padding: 30px 15px;
     }
