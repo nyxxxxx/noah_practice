@@ -5,4 +5,6 @@ import router from './router'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 
+import jQuery from 'jquery'
+window.$ = window.jQuery = jQuery
 createApp(App).use(router).mount('#app');

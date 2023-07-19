@@ -11,6 +11,7 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.0",
     "core-js": "^3.8.3",
+    "jquery": "^3.7.0",
     "node-sass": "^9.0.0",
     "sass-loader": "^13.3.2",
     "svg-japan": "^1.1.2",

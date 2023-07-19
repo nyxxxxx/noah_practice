@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar">
-    <div class="container-fluid gx-0">
+    <div class="container-fluid">
       <div class="container d-flex justify-content-between">
         <div class="d-inline-block">
           <router-link to="/"><img src="@/assets/images/logo/logo.png" alt=""></router-link>

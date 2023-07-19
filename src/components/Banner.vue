@@ -26,8 +26,8 @@ export default {
     SwiperSlide,
   },
   setup() {//swiper設定
-    const onSwiper = (swiper) => {
-      console.log(swiper);
+    const onSwiper = () => {
+      // console.log(swiper);要使用的話上一行記得補參數swiper
     };
     const onSlideChange = () => {
       // console.log('slide change');
