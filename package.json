@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.2",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.0",
     "core-js": "^3.8.3",
@@ -16,6 +17,7 @@
     "sass-loader": "^13.3.2",
     "svg-japan": "^1.1.2",
     "swiper": "^10.0.4",
+    "vite": "^4.4.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },

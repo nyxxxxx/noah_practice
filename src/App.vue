@@ -1,13 +1,17 @@
 <template>
-  <!-- <nav>
-    <router-link to="/">Home</router-link> 
-    <router-link to="/about">About</router-link>
-  </nav> -->
   <router-view />
 </template>
 
-<style>
+<script>
+export default {
+  name: 'APPvue',
+  mounted(){
+    // console.log(process.env.VUE_APP_WEATHER_KEY);
+  },
+}
+</script>
 
+<style>
 /* nav a.router-link-exact-active {
   color: #42b983;
 } */

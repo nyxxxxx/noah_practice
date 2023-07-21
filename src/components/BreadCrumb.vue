@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="(item, i) in breadcrumbList" :key="i" class="pl-2">
+      <li v-for="(item, i) in breadcrumbList" :key="i">
         <router-link :to="item.path">{{ item.meta.title }}</router-link>
       </li>
     </ul>
@@ -42,32 +42,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '@/assets/css/color.scss';
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    li{
-      display: inline-block;
-      a{
-        color: $primary-color;
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-decoration: none;
-      }
-      a:hover {
-        color: $support-color;
-      }
-    }
-    li::after {
-      content: '/';
-      display: inline-block;
+@import '@/assets/css/color.scss';
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+  li {
+    display: inline-block;
+
+    a {
       color: $primary-color;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
     }
-    li:last-child::after {
-      content: '';
+
+    a:hover {
+      color: $support-color;
     }
   }
-</style>
+
+  li::after {
+    content: '/';
+    display: inline-block;
+    color: $primary-color;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  li:last-child::after {
+    content: '';
+  }
+}</style>

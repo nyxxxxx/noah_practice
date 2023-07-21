@@ -1,7 +1,7 @@
 <template>
   <NavBar></NavBar>
-  <bread-crumb></bread-crumb>
-  <div class="about">
+  <div class="container">
+    <bread-crumb></bread-crumb>
     <h1>This is an about page</h1>
   </div>
 </template>

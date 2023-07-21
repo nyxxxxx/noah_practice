@@ -25,9 +25,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-$primary-color: #68BE8D; //若竹色
-$secondary-color: #98D98E; //若綠
-$support-color: #FFA589;
+@import '@/assets/css/color.scss'; //color css
+@import '@/assets/css/font.scss'; //fontcss
 
 $navbar-bg-color: $primary-color;
 $navlink-color: rgb(255, 255, 255);
