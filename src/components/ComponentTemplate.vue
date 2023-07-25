@@ -9,6 +9,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/css/color.scss'; //color css
-@import '@/assets/css/font.scss'; //fontcss
+@import '@/assets/css/font.scss'; //font css
 
 </style>

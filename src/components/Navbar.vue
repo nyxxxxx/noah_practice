@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar  shadow">
     <div class="container-fluid">
       <div class="container d-flex justify-content-between">
         <div class="d-inline-block">
@@ -8,7 +8,7 @@
         <ul class="">
           <li class="nav-item"><router-link to="/area">區域風景</router-link></li>
           <li class="nav-item"><router-link to="/">季節景點</router-link></li>
-          <li class="nav-item"><router-link to="/">文化風采</router-link></li>
+          <!-- <li class="nav-item"><router-link to="/">文化風采</router-link></li> -->
           <li class="nav-item"><router-link to="/about">關於我們</router-link></li>
         </ul>
       </div>
@@ -32,6 +32,7 @@ $navbar-bg-color: $primary-color;
 $navlink-color: rgb(255, 255, 255);
 
 .navbar {
+  z-index: 999;
   height: 80px;
   ul {
     display: inline-block;
@@ -45,15 +46,16 @@ $navlink-color: rgb(255, 255, 255);
     display: inline-block;
   
     a {
-      color: black;
+      color: $nav-font-color;
       font-weight: bold;
       text-decoration: none;
       padding: 30px 15px;
-    }
-    a:hover{
+      transition: all 0.3s;
+      &:hover {
         background-color: $primary-color;
         color: white;
       }
+    }
   }
 }
 

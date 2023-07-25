@@ -1,37 +1,19 @@
 <template>
-    <div class="row row-cols-2">
-      <div class="col gx-0">
-        <img id="intro-img-1" :src="require(`@/assets/images/area_page/${areaImgSrc1}`)" alt="" srcset="" class="w-100">
-      </div>
-      <div class="col gx-0">
-        <img id="intro-img-2" :src="require(`@/assets/images/area_page/${areaImgSrc2}`)" alt="" srcset="" class="w-100">
-      </div>
-      <div class="col gx-0">
-        <img id="intro-img-3" :src="require(`@/assets/images/area_page/${areaImgSrc3}`)" alt="" srcset="" class="w-100">
-      </div>
-      <div class="col gx-0">
-        <img id="intro-img-4" :src="require(`@/assets/images/area_page/${areaImgSrc4}`)" alt="" srcset="" class="w-100">
-      </div>
+  <div class="card-box">
+    <div class="">
+      <img :src="require(`@/assets/images/area_page/content/${event_img}`)" alt="" srcset="" class="w-100">
     </div>
-    <div class="row">
-      <div class="intro">
-        <h4 id="intro-title" class="fourth-title">{{ areaTitle }}</h4>
-        <p id="intro-content"> {{ areaContent }}</p>
-      </div>
-    </div>
+    <h4>{{ event_title }}</h4>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'AreaCard',
   props: {
-    areaImgSrc1: String,
-    areaImgSrc2: String,
-    areaImgSrc3: String,
-    areaImgSrc4: String,
-    areaTitle: String,
-    areaContent: String,
-  },
+    event_img: String,
+    event_title: String,
+  }
 };
 </script>
 
@@ -39,21 +21,36 @@ export default {
 @import '@/assets/css/color.scss'; //color css
 @import '@/assets/css/font.scss'; //fontcss
 
-.intro {
-  background-color: $primary-color;
+.card-box {
+  border-radius: 5px;
+  overflow: hidden;
+  transition: box-shadow 0.15s;
+  //hover卡片 卡片邊框陰影+裡面圖片放大+變色
+  &:hover {
+    box-shadow: 0px 0px 13px -2px rgba(94, 94, 94, 0.78);
+    -webkit-box-shadow: 0px 0px 13px -2px rgba(94, 94, 94, 0.78);
+    -moz-box-shadow: 0px 0px 13px -2px rgba(94, 94, 94, 0.78);
 
+    img {
+      transform: scale(1.1);
+    }
+    h4 {
+      color:$primary-color;
+    }
+  }
 
-  .fourth-title {
-    padding: 0 12px;
-    margin-top: 0.5rem;
-    color: white;
+  div {
+    overflow: hidden;
+
+    img {
+      transition: all 0.15s;
+    }
+  }
+
+  h4 {
     font-weight: bold;
   }
 
-  p {
-    padding: 0 12px;
-    color: white;
-    font-weight: bold;
-  }
+  text-align: center;
 }
 </style>

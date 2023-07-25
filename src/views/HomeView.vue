@@ -100,51 +100,16 @@
         <!-- C-第一區 -->
         <div class="row mb-4">
           <!-- 大圖 -->
-          <div class="col position-relative">
-            <div class="img-box">
-              <router-link to="/" class="overflow-hidden h-100">
-                <img src="@/assets/images/home_page/C-body06.png" alt="" class="w-100">
-                <h4 class="fourth-title position-absolute">伏見稻荷大社</h4>
-              </router-link>
-            </div>
+          <div class="col">
+            <tourist-spot title_type="h4" :folder_name=folder spot_file="C-body06.png" spot_title="伏見稻荷大社" />
           </div>
           <!-- 小圖*4 -->
           <div class="col">
             <div class="row row-cols-2 gy-3">
-              <!-- 小圖start -->
-              <div class="col position-relative">
-                <div class="img-box">
-                  <router-link to="/" class="overflow-hidden h-100">
-                    <img src="@/assets/images/home_page/C-body01.png" alt="" class="w-100">
-                    <h5 class="fifth-title position-absolute">忠靈塔</h5>
-                  </router-link>
-                </div>
-              </div>
-              <div class="col position-relative">
-                <div class="img-box">
-                  <router-link to="/" class="overflow-hidden h-100">
-                    <img src="@/assets/images/home_page/C-body05.png" alt="" class="w-100">
-                    <h5 class="fifth-title position-absolute">大阪</h5>
-                  </router-link>
-                </div>
-              </div>
-              <div class="col position-relative">
-                <div class="img-box">
-                  <router-link to="/" class="overflow-hidden h-100">
-                    <img src="@/assets/images/home_page/C-body03.png" alt="" class="w-100">
-                    <h5 class="fifth-title position-absolute">神通町</h5>
-                  </router-link>
-                </div>
-              </div>
-              <div class="col position-relative">
-                <div class="img-box">
-                  <router-link to="/" class="overflow-hidden h-100">
-                    <img src="@/assets/images/home_page/C-body04.png" alt="" class="w-100">
-                    <h5 class="fifth-title position-absolute">平等院</h5>
-                  </router-link>
-                </div>
-              </div>
-              <!-- 小圖end -->
+              <tourist-spot title_type="h5" :folder_name=folder spot_file="C-body02.png" spot_title="忠靈塔" />
+              <tourist-spot title_type="h5" :folder_name=folder spot_file="C-body05.png" spot_title="大阪" />
+              <tourist-spot title_type="h5" :folder_name=folder spot_file="C-body03.png" spot_title="神通町" />
+              <tourist-spot title_type="h5" :folder_name=folder spot_file="C-body04.png" spot_title="平等院" />
             </div>
           </div>
         </div>
@@ -163,14 +128,21 @@
 import NavBar from '@/components/Navbar.vue';//navbar
 import Banner from '@/components/Banner.vue';//banner
 import Footer from '@/components/Footer.vue';//footer
+import TouristSpot from '@/components/TouristSpot.vue';
 
 export default {
   components: {
     NavBar,
     Banner,
     Footer,
+    TouristSpot,
   },
-
+  setup() {
+    const folder = 'home_page'
+    return {
+      folder,
+    }
+  },
 }
 </script>
 
@@ -193,22 +165,6 @@ export default {
     margin-right: 1rem;
   }
 
-}
-
-//img-box css
-.img-box {
-  overflow: hidden;
-  border-radius: 5px;
-
-  img {
-    filter: brightness(75%);
-    transition: all 0.3s;
-  }
-
-  img:hover {
-    filter: brightness(95%);
-    transform: scale(1.1);
-  }
 }
 
 // A-div css
@@ -234,23 +190,5 @@ export default {
 // C-div css
 .C-div {
   margin: 30px 0;
-
-  .C-body {
-    .fifth-title {
-      left: 1.5rem;
-      bottom: 0;
-      font-weight: bold;
-      color: white;
-    }
-
-    .fourth-title {
-      left: 1.5rem;
-      bottom: 0;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: white;
-    }
-
-  }
 }
 </style>

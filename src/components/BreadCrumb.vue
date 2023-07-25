@@ -46,9 +46,8 @@ export default {
 
 ul {
   list-style: none;
-  margin: 0;
+  margin:30px 0;
   padding: 0;
-  margin-bottom: 30px;
   li {
     display: inline-block;
 
