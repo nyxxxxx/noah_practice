@@ -111,7 +111,7 @@ import Footer from '@/components/Footer.vue';
 import BreadCrumb from '@/components/BreadCrumb.vue';
 import AreaIntro from '@/components/AreaIntro.vue';
 import JapanMap from '@/components/JapanMap.vue';
-import { onMounted , ref} from 'vue';
+import { onMounted, ref } from 'vue';
 import $ from 'jquery';
 
 export default {
@@ -127,29 +127,29 @@ export default {
     let show_content = ref({
       title: '札幌 | 旭川 | 函館 | 小樽',
       content: '北海道（Hokkaido）位於日本最北部，面積約77,983平方km，人口約547萬人，省會位於札幌市。 北海道瀕臨日本海、鄂霍次克海和太平洋，土地遼闊，自然優美，物產豐富。 北海道冬季冰天雪地，可觀賞冰雪節、流冰，也是冬季旅遊和滑雪的勝地。 夏季原野鮮花盛開，氣候涼爽，是日本著名避暑勝地。',
-      ImgSrc1: 'A-Region1-01.png',
-      ImgSrc2: 'A-Region1-02.png',
-      ImgSrc3: 'A-Region1-03.png',
-      ImgSrc4: 'A-Region1-04.png',
+      ImgSrc1: 'A-region01-01.png',
+      ImgSrc2: 'A-region01-02.png',
+      ImgSrc3: 'A-region01-03.png',
+      ImgSrc4: 'A-region01-04.png',
     });
     let areaData = ref([
       {
         id: 1,
         title: '札幌 | 旭川 | 函館 | 小樽',
         content: '北海道（Hokkaido）位於日本最北部，面積約77,983平方km，人口約547萬人，省會位於札幌市。 北海道瀕臨日本海、鄂霍次克海和太平洋，土地遼闊，自然優美，物產豐富。 北海道冬季冰天雪地，可觀賞冰雪節、流冰，也是冬季旅遊和滑雪的勝地。 夏季原野鮮花盛開，氣候涼爽，是日本著名避暑勝地。',
-        ImgSrc1: 'A-Region1-01.png',
-        ImgSrc2: 'A-Region1-02.png',
-        ImgSrc3: 'A-Region1-03.png',
-        ImgSrc4: 'A-Region1-04.png',
+        ImgSrc1: 'A-region01-01.png',
+        ImgSrc2: 'A-region01-02.png',
+        ImgSrc3: 'A-region01-03.png',
+        ImgSrc4: 'A-region01-04.png',
       },
       {
         id: 2,
         title: '宮城 | 福島 | 青森 | 山形 | 秋田 | 岩手',
         content: '日本的東北地區位於本州島的東北方，是一處擁有眾多秘境絕景與四季景緻的旅遊寶地，例如擁有東北最大都市仙台的宮城縣、彷彿精靈園地的青森縣奧入瀨溪流、秋楓美不勝收的秋田縣抱返溪谷、吸引全世界前來欣賞的山形藏王樹冰等等，隨便舉例都是傳說級的美景。',
-        ImgSrc1: 'B-body01.png',
-        ImgSrc2: 'B-body02.png',
-        ImgSrc3: 'B-body03.png',
-        ImgSrc4: 'B-body04.png',
+        ImgSrc1: 'A-region02-01.png',
+        ImgSrc2: 'A-region02-02.png',
+        ImgSrc3: 'A-region02-03.png',
+        ImgSrc4: 'A-region02-04.png',
       },
       {
         id: 3,
@@ -164,10 +164,10 @@ export default {
         id: 4,
         title: '石川 | 長野 | 新瀉 | 靜岡 | 愛知 | 富山',
         content: '中部地區是日本旅遊資源的寶庫，風景秀麗且充滿歷史文化，也以溫泉聞名，提供一流的溫泉度假體驗。',
-        ImgSrc1: 'A-Region4-01.png',
-        ImgSrc2: 'A-Region4-02.png',
-        ImgSrc3: 'A-Region4-03.png',
-        ImgSrc4: 'A-Region4-04.png',
+        ImgSrc1: 'A-region04-01.png',
+        ImgSrc2: 'A-region04-02.png',
+        ImgSrc3: 'A-region04-03.png',
+        ImgSrc4: 'A-region04-04.png',
       },
     ]);
     //改變內容function

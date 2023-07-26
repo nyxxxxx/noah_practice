@@ -5,6 +5,7 @@ import JapanAreaView from '@/views/JapanAreaView.vue'
 import AreaIndexView from '@/views/AreaIndexView.vue'
 import HokkaidoView from '@/views/HokkaidoView.vue'
 import FontView from '@/views/FontView.vue'
+import TestView from '@/views/TestView.vue'
 
 
 
@@ -44,6 +45,12 @@ const routes = [
     name: 'font',
     component: FontView,
     meta: { title: '字體' },
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: TestView,
+    meta: { title: '測試' },
   },
 ];
 

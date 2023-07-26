@@ -9,4 +9,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import jQuery from 'jquery'
 window.$ = window.jQuery = jQuery
 
-createApp(App).use(router).mount('#app');
+import MasonryWall from '@yeger/vue-masonry-wall'
+
+
+
+createApp(App).use(router).use(MasonryWall).mount('#app');
