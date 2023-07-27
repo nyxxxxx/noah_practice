@@ -1,119 +1,59 @@
 <template>
-    <nav-bar></nav-bar>
-    <div class="container" style="margin-bottom: 500px;">
-        <div class="row position-relative">
-            <img src="@/assets/images/season/spring/spring.png" alt="" class="w-100">
-            <div class="position-absolute image-card" :style="{ marginTop: -titleHeight - 8 + 'px' }">
-                <h2 class="sec-title" ref="titleElement">這是即將到來的 <br> 春天</h2>
-                <img src="@/assets/images/season/spring/test-img.png" alt="">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <p>
-                    這是假文章
-                </p>
-            </div>
-            <div class="col"></div>
-        </div>
-    </div>
-    <div class="container">
-        <masonry-wall :items="files" :ssr-columns="1" :column-width="300" :gap="16">
-            <template #default="{ item }">
-                <div>
-                    <img :src="getImageUrl(item)" alt="Image" style="width: 100%; height: 100%;" />
-                    <!-- <h1>{{ item }}</h1> -->
-                </div>
-            </template>
-        </masonry-wall>
-    </div>
-    <Footer></Footer>
-</template>
+    <div>
+      <!-- 漢堡選單按鈕 -->
+      <button id="toggler-button" type="button" class="position-relative" @click="toggleNavbar">
+        <!-- 上方橫線 -->
+        <span class="toggler-stick" id="ts-1" :style="{ transform: showNavbar ? 'rotate(45deg)' : '' }"></span>
+        <!-- 中間橫線 -->
+        <span class="toggler-stick" id="ts-2" v-if="!showNavbar"></span>
+        <!-- 下方橫線 -->
+        <span class="toggler-stick" id="ts-3" :style="{ transform: showNavbar ? 'rotate(-45deg)' : '' }"></span>
+      </button>
   
-<script>
-import NavBar from '@/components/Navbar.vue';//navbar
-import Footer from '@/components/Footer.vue';//footer
-import { ref, onMounted, nextTick, } from 'vue';
-export default {
-    name: 'TestView',
-    components: {
-        NavBar,
-        Footer,
+      <!-- Nav Drawer 內容 -->
+      <div class="nav-drawer" v-if="showNavbar">
+        <ul>
+          <li>選項1</li>
+          <li>選項2</li>
+          <li>選項3</li>
+        </ul>
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    data() {
+      return {
+        showNavbar: false,
+      };
     },
-    setup() {
-        //A-div區塊調整
-        const titleElement = ref(null);
-        const titleHeight = ref(0);
-
-        const updateTitleHeight = () => {
-            if (titleElement.value) {
-                titleHeight.value = titleElement.value.scrollHeight;
-            }
-        };
-
-        onMounted(() => {
-            nextTick(() => {
-                updateTitleHeight();
-            });
-
-            window.addEventListener('resize', updateTitleHeight);
-        });
-
-        //瀑布流部分
-        var files = ref([]);
-
-        onMounted(() => {
-
-            fetchfiles();
-        });
-        //讀取資料夾內圖片檔案名稱
-        async function fetchfiles() {
-            try {
-                const response = await fetch('http://localhost:3000/files');
-                if (!response.ok) {
-                    throw new Error('獲取檔案清單失敗！');
-                }
-
-                files.value = await response.json();
-            } catch (error) {
-                console.error(error.message);
-            }
-        }
-        //img src
-        function getImageUrl(filename) {
-            console.log('123');
-            return require(`@/assets/images/season/spring/${filename}`);
-        }
-        return {
-            titleElement,
-            titleHeight,
-            getImageUrl,
-            files,
-        };
+    methods: {
+      toggleNavbar() {
+        this.showNavbar = !this.showNavbar;
+      },
     },
-};
-</script>
+  };
+  </script>
+  
+  <style lang="scss">
+  #toggler-button {
+    height: 27px;
+    width: 24px;
+    border: none;
+    margin-left: 16px;
 
-<style lang="scss" scoped>
-@import '@/assets/css/color.scss'; //color css
-@import '@/assets/css/font.scss'; //font css
-
-.image-card {
-    background-image: linear-gradient(180deg, #d03c62 0%, #ec74c1 100%);
-    color: white;
-    width: 40%;
-    right: 0;
-    right: 12px;
-    top: 100%;
-    // margin-top: -5.25rem;
-    padding: 0;
-
-    h2 {
-        padding: 50px 20px;
+    .toggler-stick {
+      content: '';
+      display: inline-block;
+      height: 3px;
+      width: 24px;
+      // padding: 20px 0;
+      background-color: black;
+      position: absolute;
+      right: 0;
+      top: 0;
     }
-
-    img {
-        max-width: 80%;
-    }
-}
-</style>
+  }
+  </style>
+  

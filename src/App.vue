@@ -5,7 +5,7 @@
 <script>
 export default {
   name: 'APPvue',
-  mounted(){
+  mounted() {
     // console.log(process.env.VUE_APP_WEATHER_KEY);
   },
 }

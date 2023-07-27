@@ -4,6 +4,7 @@ import AboutView from '@/views/AboutView.vue'
 import JapanAreaView from '@/views/JapanAreaView.vue'
 import AreaIndexView from '@/views/AreaIndexView.vue'
 import HokkaidoView from '@/views/HokkaidoView.vue'
+import SeasonView from '@/views/SeasonView.vue'
 import FontView from '@/views/FontView.vue'
 import TestView from '@/views/TestView.vue'
 
@@ -16,6 +17,12 @@ const routes = [
     name: 'home',
     component: HomeView,
     meta: { title: '日本旅遊' },
+  },
+  {
+    path: '/season',
+    name: 'season',
+    component: SeasonView,
+    meta: { title: '季節景點' },
   },
   {
     path: '/about',
