@@ -152,7 +152,7 @@ export default {
 
 //banner-div css
 .banner-div {
-  margin-bottom: 30px;
+  margin: 30px 0;
 }
 
 //title-cumtom css

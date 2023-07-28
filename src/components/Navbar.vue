@@ -202,7 +202,7 @@ $navlink-color: rgb(255, 255, 255);
       height: 3px;
       width: 24px;
       // padding: 20px 0;
-      background-color: black;
+      background-color: $font-color;
       position: absolute;
       right: 0;
       top: 0;
