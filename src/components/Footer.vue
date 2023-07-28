@@ -3,13 +3,13 @@
     <div class="footer">
       <div class="container">
         <div class="footer-logo-div d-flex justify-content-between">
-          <div class="logo-div d-inline-block">
+          <div class="logo-div">
             <img src="@/assets/images/logo/logo3.png" alt="" style="height: 50px;">
           </div>
-          <div class="icon-div d-inline-block">
-            <a href="#" @click.prevent> <img src="@/assets/images/logo/footer-fb.png" alt="" srcset=""></a>
-            <a href="#" @click.prevent> <img src="@/assets/images/logo/footer-ig.png" alt="" srcset=""></a>
-            <a href="#" @click.prevent> <img src="@/assets/images/logo/footer-twitter.png" alt="" srcset=""></a>
+          <div class="icon-div d-flex align-items-center">
+              <a href="#" @click.prevent> <img src="@/assets/images/logo/footer-fb.png" alt="" srcset=""></a>
+              <a href="#" @click.prevent> <img src="@/assets/images/logo/footer-ig.png" alt="" srcset=""></a>
+              <a href="#" @click.prevent> <img src="@/assets/images/logo/footer-twitter.png" alt="" srcset=""></a>
           </div>
         </div>
         <div class="row">
@@ -39,6 +39,9 @@ export default {
     .icon-div {
       a {
         margin-right: 15px;
+        img {
+          display: inline-block;
+        }
       }
     }
   }
