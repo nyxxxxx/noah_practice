@@ -8,7 +8,7 @@
 
         <div class="container-lg d-flex justify-content-between align-items-center">
           <div class="d-inline-block">
-            <router-link to="/"><img src="@/assets/images/logo/logo.png" alt=""></router-link>
+            <router-link to="/"><img src="@/assets/images/logo/logo3.png" alt="" style="height: 40px;"></router-link>
           </div>
           <div class="d-flex">
             <!-- 筆電尺寸以上 -->
@@ -90,14 +90,14 @@ export default {
       if (!NavbarIsToggle.value) {
         $('#toggle-menu').slideDown();
         $('#ts-1').css('top', '50%').css('transform', 'rotate(-45deg)');
-        $('#ts-2').css('display', 'none');
+        $('#ts-2').fadeOut(100);
         $('#ts-3').css('top', '50%').css('transform', 'rotate(45deg)').css('margin-top', '0');
         NavbarIsToggle.value = !NavbarIsToggle.value;
       }
       else {
         $('#toggle-menu').slideUp();
         $('#ts-1').css('top', '0').css('transform', 'initial');
-        $('#ts-2').css('display', 'block');
+        $('#ts-2').fadeIn(100);
         $('#ts-3').css('top', '0').css('transform', 'initial').css('margin-top', '18px');
         NavbarIsToggle.value = !NavbarIsToggle.value;
       }
@@ -166,7 +166,7 @@ $navlink-color: rgb(255, 255, 255);
 
       a {
         color: $nav-font-color;
-        font-weight: bold;
+        font-weight: 500;
         font-size: 1.1rem;
         text-decoration: none;
         padding: 30px 15px;
@@ -253,7 +253,7 @@ $navlink-color: rgb(255, 255, 255);
     a {
       text-decoration: none;
       color: $nav-font-color;
-      font-weight: bold;
+      font-weight: 500;
       font-size: 1.1rem;
     }
   }

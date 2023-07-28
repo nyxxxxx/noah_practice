@@ -5,6 +5,8 @@ import router from './router'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 
+// import google-font
+import './assets/css/font-family.css'; // 導入全局 CSS 文件
 // import jquery
 import jQuery from 'jquery'
 window.$ = window.jQuery = jQuery
