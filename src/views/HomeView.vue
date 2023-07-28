@@ -13,71 +13,42 @@
       </div>
       <div class="A-body">
         <div class="row">
-          <!-- A-div 左邊 -->
-          <div class="col">
+          <!-- A-div 左邊、右邊 v-for -->
+          <div class="col-6" v-for="item in contentA" :key="item.id">
             <!-- https://japantravel.navitime.com/zh-tw/area/jp/guide/NTJtrv0485-zh-tw/ -->
             <!-- 大圖 -->
-            <img src="@/assets/images/home_page/A-body01.png" alt="" class="w-100">
-            <h4 class="fourth-title">【靜岡熱海】全攻略！景點、美食、溫泉24個必去景點</h4>
-            <span class="content-little">2023.06.12</span>
-            <p>由東京都心搭乘新幹線就能抵達的人氣觀光勝地「熱海」不僅交通便利還有新鮮的海產美食，在這裡可以享充滿受懷舊風情的沙難和溫泉以及夏日煙火。</p>
+            <img :src="getImgUrl(item.bigImgSrc)" alt="" class="w-100">
+            <h4 class="fourth-title">{{item.bigTitle}}</h4>
+            <span class="content-little">{{item.bigDate}}</span>
+            <p>{{ item.bigContent }}</p>
 
             <hr>
             <!-- https://www.japan.travel/tw/tw/news/?page=2 -->
             <!-- 小圖*2 -->
             <div class="row" style="margin-top:30px; margin-bottom: 30px;">
               <div class="col-3">
-                <img src="@/assets/images/home_page/A-body01.png" alt="" class="w-100">
+                <img :src="getImgUrl(item.smallImgSrc1)" alt="" class="w-100 rounded-3">
               </div>
               <div class="col-9">
-                <h5>參加九州魅力地點大投票！有機會抽中日本空運來台小禮物！</h5>
-                <span class="content-little">2023.03.16</span>
+                <h5>{{item.smallTitle1}}</h5>
+                <span class="content-little">{{item.smallDate1}}</span>
+                <p class="text-truncate">{{ item.smallContent1 }}</p>
+
               </div>
             </div>
 
-            <div class="row">
-              <div class="col-3">
-                <img src="@/assets/images/home_page/A-body01.png" alt="" class="w-100">
-              </div>
-              <div class="col-9">
-                <h5>參加九州魅力地點大投票！有機會抽中日本空運來台小禮物！</h5>
-                <span class="content-little">2023.03.16</span>
-              </div>
-            </div>
-          </div>
-          <!-- A-div 右邊 -->
-          <div class="col">
-            <!-- https://japantravel.navitime.com/zh-tw/area/jp/guide/NTJnews0567-zh-tw/ -->
-            <!-- 大圖 -->
-            <img src="@/assets/images/home_page/A-body02.png" alt="" class="w-100">
-            <h4 class="fourth-title">【富山・長野】立山黑部完美解析！必去景點一次告訴你</h4>
-            <span class="content-little">2022.10.06</span>
-            <p>前來日本關東旅行時，「立山黑部」絕對是個人氣景點，「立山黑部」又被稱作是日本的阿爾卑斯山，超高雪壁、震撼的景象，是一生中必來的絕景景點。</p>
-            <hr>
-
-            <!-- https://www.japan.travel/tw/tw/news/?page=2 -->
-            <!-- 小圖*2 -->
             <div class="row" style="margin-top:30px; margin-bottom: 30px;">
               <div class="col-3">
-                <img src="@/assets/images/home_page/A-body01.png" alt="" class="w-100">
+                <img :src="getImgUrl(item.smallImgSrc2)" alt="" class="w-100 rounded-3">
               </div>
               <div class="col-9">
-                <h5>參加九州魅力地點大投票！有機會抽中日本空運來台小禮物！</h5>
-                <span class="content-little">2023.03.16</span>
+                <h5>{{item.smallTitle2}}</h5>
+                <span class="content-little">{{item.smallDate2}}</span>
+                <p class="text-truncate">{{ item.smallContent2 }}</p>
               </div>
             </div>
-
-            <div class="row">
-              <div class="col-3">
-                <img src="@/assets/images/home_page/A-body01.png" alt="" class="w-100">
-              </div>
-              <div class="col-9">
-                <h5>參加九州魅力地點大投票！有機會抽中日本空運來台小禮物！</h5>
-                <span class="content-little">2023.03.16</span>
-              </div>
-            </div>
-
           </div>
+
         </div><!-- A-div row end -->
       </div><!-- A-div body end -->
     </div><!-- A-div end -->
@@ -138,9 +109,46 @@ export default {
     TouristSpot,
   },
   setup() {
-    const folder = 'home_page'
+    const folder = 'home_page';
+    const contentA = [
+      {
+        id:'left',
+        bigImgSrc: 'A-body-01.png',
+        bigTitle: '【靜岡熱海】全攻略！景點、美食、溫泉24個必去景點',
+        bigDate: '2023.06.12',
+        bigContent: '由東京都心搭乘新幹線就能抵達的人氣觀光勝地「熱海」不僅交通便利還有新鮮的海產美食，在這裡可以享充滿受懷舊風情的沙難和溫泉以及夏日煙火。',
+        smallImgSrc1: 'A-body-03.png',
+        smallTitle1: '#下次的日本旅行 我想去〇〇！贈獎活動',
+        smallDate1: '2023.03.01',
+        smallContent1: '分享 #下次的日本旅行 想再度造訪的景點，或是沒去過但想去的地方',
+        smallImgSrc2: 'A-body-04.png',
+        smallTitle2: '#參加九州魅力地點大投票！抽小禮物！',
+        smallDate2: '2023.05.15',
+        smallContent2: '請上我們的「玩出屬於我的日本-九州/北海道 我的心日常」網頁，選出你認為最有魅力的景點！',
+      },
+      {
+        id:'right',
+        bigImgSrc: 'A-body-02.png',
+        bigTitle: '【富山・長野】立山黑部完美解析！必去景點一次告訴你',
+        bigDate: '2023.07.02',
+        bigContent: '前來日本關東旅行時，「立山黑部」絕對是個人氣景點，「立山黑部」又被稱作是日本的阿爾卑斯山，超高雪壁、震撼的景象，是一生中必來的絕景景點。',
+        smallImgSrc1: 'A-body-05.png',
+        smallTitle1: '#繪馬許願 線上祈福活動',
+        smallDate1: '2023.03.01',
+        smallContent1: '從活動網站下載數位繪馬，寫下你的願望，將圖片上傳到個人的Instagram或在指定Facebook貼文中留',
+        smallImgSrc2: 'A-body-06.png',
+        smallTitle2: '#日本東北魅力大！玩出屬於「你」的東北',
+        smallDate2: '2023.01.22',
+        smallContent2: '歡迎到「玩出屬於我的東北」專設網頁，與東北代表秋太郎一起線上瀏覽最新東北景色！',
+      },
+    ];
+    function getImgUrl(src){
+      return require(`@/assets/images/home_page/${src}`);
+    }
     return {
       folder,
+      contentA,
+      getImgUrl,
     }
   },
 }

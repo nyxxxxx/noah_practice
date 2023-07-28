@@ -25,17 +25,19 @@ export default {
   border-radius: 5px;
   overflow: hidden;
   transition: box-shadow 0.15s;
+
   //hover卡片 卡片邊框陰影+裡面圖片放大+變色
   &:hover {
-    box-shadow: 0px 0px 13px -2px rgba(94, 94, 94, 0.78);
-    -webkit-box-shadow: 0px 0px 13px -2px rgba(94, 94, 94, 0.78);
-    -moz-box-shadow: 0px 0px 13px -2px rgba(94, 94, 94, 0.78);
-
+    box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.31);
+    -webkit-box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.31);
+    cursor: pointer;
     img {
       transform: scale(1.1);
     }
+
     h4 {
-      color:$primary-color;
+      color: $primary-color;
     }
   }
 

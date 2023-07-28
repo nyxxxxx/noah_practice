@@ -33,11 +33,10 @@ export default {
   img {
     filter: brightness(75%);
     transition: all 0.3s;
-  }
-
-  img:hover {
-    filter: brightness(95%);
-    transform: scale(1.1);
+    &:hover {
+      filter: brightness(95%);
+      transform: scale(1.1);      
+    }
   }
 }
 
