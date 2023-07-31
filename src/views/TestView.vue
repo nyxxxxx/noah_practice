@@ -1,83 +1,75 @@
 <template>
-  <div class="scroll-container">
-    <div class="sidebar">
-      <ul>
-        <li v-for="(item, index) in sections" :key="index">
-          <button @click="scrollToSection(index)">{{ item }}</button>
-        </li>
-      </ul>
-    </div>
-    <div class="content">
-      <div v-for="(item, index) in sections" :key="index" :ref="el => sectionRefs[index] = el">
-        <h2>{{ item }}</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur, eros eu dictum tristique, ex tellus venenatis mauris, sit amet pulvinar magna neque quis risus.</p>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-      </div>
-    </div>
-  </div>
+  <div id="map"></div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
+import { Loader } from '@googlemaps/js-api-loader';
 
 export default {
-  name: 'ScrollDemo',
-  setup() {
-    const sections = ref(['Section 1', 'Section 2', 'Section 3']);
-    const sectionRefs = ref([]);
+  props: {
+    lat: {
+      type: Number,
+      default: 43.11,
+    },
+    lon: {
+      type: Number,
+      default: 141.00,
+    },
+  },
+  setup(props) {
+    const map = ref(null);
+    const marker = ref(null);
 
-    function scrollToSection(index) {
-      const sectionRef = sectionRefs.value[index];
-      if (sectionRef) {
-        sectionRef.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    const initMap = (lat, lon) => {
+      if (!lat || !lon) return;
 
-    return {
-      sections,
-      sectionRefs,
-      scrollToSection,
+      const loader = new Loader({
+        apiKey: process.env.VUE_APP_GOOGLEMAP_KEY,
+        version: 'weekly',
+        libraries: ['maps', 'marker'],
+      });
+
+      loader.load().then(async () => {
+        const { google } = window;
+
+        if (!google || !google.maps) {
+          console.error("Google Maps API 未載入.");
+          return;
+        }
+
+        map.value = new google.maps.Map(document.getElementById("map"), {
+          center: { lat, lng: lon },
+          zoom: 8,
+        });
+        // 在地圖上建立標記
+        marker.value = new google.maps.Marker({
+          map: map.value,
+          position: { lat, lng: lon },
+          title: "Otaru",
+        });
+      });
     };
+
+    onMounted(() => {
+      initMap(props.lat, props.lon);
+    });
+
+    watch(() => [props.lat, props.lon], ([newLat, newLon]) => {
+      initMap(newLat, newLon);
+    });
+
+    return { map };
   },
 };
 </script>
 
-<style>
-.scroll-container {
-  display: flex;
-  gap: 20px;
-}
+<style lang="scss" scoped>
+@import '@/assets/css/color.scss';
+@import '@/assets/css/font.scss';
 
-.sidebar {
-  flex: 0 0 200px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar li {
-  margin-bottom: 10px;
-}
-
-.content {
-  flex: 1;
-}
-
-h2 {
-  margin-top: 0;
-}
-
-p {
-  margin-bottom: 20px;
+#map {
+  width: 500px;
+  height: 450px;
 }
 </style>

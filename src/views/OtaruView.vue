@@ -407,7 +407,7 @@ export default {
           const topOffset = sectionRef.offsetTop;
           const bottomOffset = topOffset + sectionRef.clientHeight;
 
-          if (scrollY >= topOffset && scrollY < bottomOffset) {
+          if (scrollY >= (topOffset-10) && scrollY < (bottomOffset-10)) {
             activeSectionIndex.value = i;
             break;
           }

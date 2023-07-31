@@ -45,7 +45,6 @@ export default {
     watchEffect(() => {
       if (props.queryCity) {
         query.value = props.queryCity;
-        console.log('1');
         fetchWeather();
       }
     });
@@ -53,9 +52,8 @@ export default {
       weather,
       (newWeather) => {
         if (newWeather.location) {
-          // console.log('傳參數囉');
-          console.log('緯度'+newWeather.location.lat);
-          console.log('經度'+newWeather.location.lon);
+          // console.log('緯度'+newWeather.location.lat);
+          // console.log('經度'+newWeather.location.lon);
           emit('weatherLocation', {
             lat: newWeather.location.lat,
             lon: newWeather.location.lon,
