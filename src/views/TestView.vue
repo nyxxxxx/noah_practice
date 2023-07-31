@@ -1,36 +1,83 @@
 <template>
-  {{ width }}
+  <div class="scroll-container">
+    <div class="sidebar">
+      <ul>
+        <li v-for="(item, index) in sections" :key="index">
+          <button @click="scrollToSection(index)">{{ item }}</button>
+        </li>
+      </ul>
+    </div>
+    <div class="content">
+      <div v-for="(item, index) in sections" :key="index" :ref="el => sectionRefs[index] = el">
+        <h2>{{ item }}</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur, eros eu dictum tristique, ex tellus venenatis mauris, sit amet pulvinar magna neque quis risus.</p>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import { onMounted, watch } from 'vue';
 import { ref } from 'vue';
 
 export default {
-  name: 'TestView',
+  name: 'ScrollDemo',
   setup() {
-    const width = ref(0);
+    const sections = ref(['Section 1', 'Section 2', 'Section 3']);
+    const sectionRefs = ref([]);
 
-    // 監聽視窗大小的變化，並更新 width
-    watch(
-      () => window.innerWidth,
-      (newWidth) => {
-        console.log('視窗寬度變了');
-        width.value = newWidth;
+    function scrollToSection(index) {
+      const sectionRef = sectionRefs.value[index];
+      if (sectionRef) {
+        sectionRef.scrollIntoView({ behavior: 'smooth' });
       }
-    );
-
-    onMounted(() => {
-      width.value = window.innerWidth;
-    });
+    }
 
     return {
-      width,
+      sections,
+      sectionRefs,
+      scrollToSection,
     };
   },
 };
 </script>
 
-<style lang="scss">
-/* 這裡可以添加樣式，如果不需要，可以保持空白 */
+<style>
+.scroll-container {
+  display: flex;
+  gap: 20px;
+}
+
+.sidebar {
+  flex: 0 0 200px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.content {
+  flex: 1;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 20px;
+}
 </style>

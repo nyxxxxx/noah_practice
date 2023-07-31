@@ -1,12 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import AboutView from '@/views/AboutView.vue'
+import SeasonView from '@/views/SeasonView.vue'
 import JapanAreaView from '@/views/JapanAreaView.vue'
 import AreaIndexView from '@/views/AreaIndexView.vue'
+import HokkaidoIndexView from '@/views/HokkaidoIndexView.vue'
 import HokkaidoView from '@/views/HokkaidoView.vue'
-import SeasonView from '@/views/SeasonView.vue'
+import OtaruView from '@/views/OtaruView.vue'
+import AboutView from '@/views/AboutView.vue'
+
 import FontView from '@/views/FontView.vue'
 import TestView from '@/views/TestView.vue'
+
 
 
 
@@ -35,16 +39,30 @@ const routes = [
     name: 'area',
     component: JapanAreaView,
     meta: { title: '區域風景' },
-    children:[{
+    redirect: { name: 'area-index' },
+    children: [{
       path: '',
       name: 'area-index',
       component: AreaIndexView,
+
     },
     {
       path: 'hokkaido',
       name: 'area-hokkaido',
       component: HokkaidoView,
       meta: { title: '北海道' },
+      redirect: { name: 'hokkaido-index' },
+      children: [{
+        path: '',
+        name: 'hokkaido-index',
+        component: HokkaidoIndexView,
+      },
+      {
+        path: 'otaru',
+        name: 'otaru',
+        component: OtaruView,
+        meta: { title: '小樽市' },
+      }]
     }]
   },
   {

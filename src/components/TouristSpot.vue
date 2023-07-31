@@ -1,7 +1,7 @@
 <template>
   <div class="col position-relative">
     <div class="img-box">
-      <router-link to="/" class="overflow-hidden h-100">
+      <router-link :to="router_name" class="overflow-hidden h-100">
         <img :src="require(`@/assets/images/${folder_name}/${spot_file}`)" alt="" class="w-100">
         <h5 v-if="title_type === 'h5'" class="fifth-title position-absolute">{{ spot_title }}</h5>
         <h4 v-if="title_type === 'h4'" class="fourth-title position-absolute">{{ spot_title }}</h4>
@@ -11,9 +11,14 @@
 </template>
 
 <script>
+
 export default {
   name: 'TouristSpot',
   props: {
+    router_name: {
+      String,
+      default:'',
+    },
     spot_title: String,
     spot_file: String,
     folder_name: String,

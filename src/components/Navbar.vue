@@ -42,7 +42,7 @@
         </div>
       </div>
     </nav>
-    <div class="container-fluid position-absolute" style="background-color: white;">
+    <div class="container-fluid position-absolute shadow" style="background-color: white;">
       <div class="d-lg-none">
         <ul id="toggle-menu">
           <li class="nav-item"><router-link to="/area">區域風景</router-link></li>

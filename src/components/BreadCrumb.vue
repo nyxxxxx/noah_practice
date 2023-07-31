@@ -53,7 +53,7 @@ ul {
 
     a {
       color: $primary-color;
-      font-size: 0.8rem;
+      // font-size: 0.8rem;
       font-weight: 600;
       text-decoration: none;
     }

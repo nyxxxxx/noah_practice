@@ -238,7 +238,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/css/color.scss'; //color css
 @import '@/assets/css/font.scss'; //fontcss
 
