@@ -20,8 +20,7 @@ export default {
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
-   width="559.88837"
-   height="745"
+   viewbox="0 0 560 745"
    id="svg2"
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="Regions_and_Prefectures_of_Japan_2.svg">

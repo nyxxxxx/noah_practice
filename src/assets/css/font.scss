@@ -3,6 +3,7 @@
     font-size: 3.0rem;
     font-weight: bold;
 }
+
 //大標題
 .title {
     font-size: 2.5rem;
@@ -37,4 +38,47 @@
 //內文小字
 .content-little {
     font-size: 0.8rem;
+}
+
+/* 螢幕尺寸<= 768px */
+@media (max-width: 768px) {
+    .banner-title {
+        font-size: 2.4rem;
+        /* 3.0rem * 0.8 = 2.4rem */
+    }
+
+    .title {
+        font-size: 2.0rem;
+        /* 2.5rem * 0.8 = 2.0rem */
+    }
+
+    .sec-title {
+        font-size: 1.6rem;
+        /* 2.0rem * 0.8 = 1.6rem */
+    }
+
+    .third-title {
+        font-size: 1.4rem;
+        /* 1.75rem * 0.8 = 1.4rem */
+    }
+
+    .fourth-title {
+        font-size: 1.2rem;
+        /* 1.5rem * 0.8 = 1.2rem */
+    }
+
+    .fifth-title {
+        font-size: 1.0rem;
+        /* 1.25rem * 0.8 = 1.0rem */
+    }
+
+    .siexth-title {
+        font-size: 0.8rem;
+        /* 1.0rem * 0.8 = 0.8rem */
+    }
+
+    .content-little {
+        font-size: 0.64rem;
+        /* 0.8rem * 0.8 = 0.64rem */
+    }
 }

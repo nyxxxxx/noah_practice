@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="row">
-          <p class="text-center" id="copy-right">Non Copyrighted © 2023 Design and upload by You-Cheng</p>
+          <p class="text-center siexth-title" id="copy-right">Non Copyrighted © 2023 Design and upload by You-Cheng</p>
         </div>
       </div>
     </div>

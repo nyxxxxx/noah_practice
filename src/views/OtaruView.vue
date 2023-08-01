@@ -1,9 +1,9 @@
 <template>
   <NavBar></NavBar>
-  <div class="container">
+  <div class="container-lg">
     <div class="row">
       <!-- article -->
-      <div class="article col-8" style="background-color: rgba(255, 243, 177, 0); margin-top: 30px;">
+      <div class="article col col-md-8" style="background-color: rgba(255, 243, 177, 0); margin-top: 30px;">
         <h2 class="sec-title">首次造訪者必看資料！小樽運河完美指南</h2>
         <p style="color: gray;">發布日期:03/06/2017 最後更新:11/20/2020 <span>*資料來源: <a
               href="https://hokkaido-labo.com/tw/otaru-canal-438">Hokkaido Labo</a></span></p>
@@ -18,7 +18,7 @@
             本次將針對首次造訪小樽者，大略地介紹景點與餐廳、酒店等，讓您安心地遊覽小樽運河！</p>
         </div>
         <!-- Google Map Api -->
-        <google-map-api :lat ="map_lat" :lon = "map_lon"></google-map-api>
+        <google-map-api :lat="map_lat" :lon="map_lon"></google-map-api>
         <!-- 正文 v-for -->
         <div v-for="(item, index) in items" :key="index" class="contents mb-5" :ref="el => sectionRefs[index] = el">
           <h3 class="third-title">{{ item.title }}</h3>
@@ -33,7 +33,7 @@
         </div>
       </div>
       <!-- aside -->
-      <div class="aside col-4" style="background-color: rgba(255, 177, 177, 0);">
+      <div class="aside col-4 d-none d-md-block" style="background-color: rgba(255, 177, 177, 0);">
         <div class="position-sticky" style="top:110px">
           <div class="row mb-5">
             <div class="catalog">
@@ -50,6 +50,10 @@
             </div>
           </div>
         </div>
+      </div>
+      <!-- to-top -->
+      <div id="top-button" class="position-fixed d-flex justify-content-center align-items-center d-md-none" @click="scrollToTop()">
+        <span>Top</span>
       </div>
     </div>
   </div>
@@ -75,13 +79,13 @@ export default {
     Footer,
   },
   setup() {
-    const city='otaru'
+    const city = 'otaru'
     const city_zh = '小樽市'
     const map_lat = ref(0)
     const map_lon = ref(0)
 
-    function handleLocation(data){
-      console.log('收到經緯度數據:', data.lat ,data.lon);
+    function handleLocation(data) {
+      console.log('收到經緯度數據:', data.lat, data.lon);
       map_lat.value = data.lat;
       map_lon.value = data.lon;
     }
@@ -407,20 +411,38 @@ export default {
           const topOffset = sectionRef.offsetTop;
           const bottomOffset = topOffset + sectionRef.clientHeight;
 
-          if (scrollY >= (topOffset-10) && scrollY < (bottomOffset-10)) {
+          if (scrollY >= (topOffset - 10) && scrollY < (bottomOffset - 10)) {
             activeSectionIndex.value = i;
             break;
           }
         }
       }
     }
-
+    //Scroll to Top
+    function scrollToTop(){
+      window.scrollTo({top:0 , behavior: 'smooth'});
+    }
+    //Top-button hide&show function
+    function topButtonToggle (){
+      const topButton = document.getElementById('top-button')
+      if(window.scrollY > this.prevScrollY){
+        topButton.classList.remove('show');
+      }
+      else {
+        topButton.classList.add('show');
+      }
+      this.prevScrollY = window.scrollY ; 
+    }
     onMounted(() => {
       window.addEventListener('scroll', onScroll);
+      window.addEventListener('scroll', topButtonToggle);
     });
     onUnmounted(() => {
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('scroll', topButtonToggle);
     });
+
+
     return {
       city,
       city_zh,
@@ -434,6 +456,8 @@ export default {
       scrollToSection,
       activeSectionIndex,
       onScroll,
+      scrollToTop,
+      topButtonToggle,
     }
   },
 }
@@ -484,6 +508,28 @@ p {
         color: $support-color;
       }
     }
+  }
+}
+
+#top-button {
+  width: 55px;
+  height: 55px;
+  bottom: 15px;
+  right: 5px;
+  border-radius: 100%;
+  background-color: $primary-color;
+  opacity: 0;
+  transition: opacity 0.3s;
+  &.show {
+    opacity: 0.8;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  span {
+    padding: 10px;
+    color: white;
+    font-size: 1.1rem;
   }
 }
 </style>

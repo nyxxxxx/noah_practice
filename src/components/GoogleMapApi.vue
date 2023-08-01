@@ -46,7 +46,7 @@ export default {
         marker.value = new google.maps.Marker({
           map: map.value,
           position: { lat, lng: lon },
-          title: "Otaru",
+          title: "小樽市",
         });
       });
     };

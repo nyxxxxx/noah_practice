@@ -1,18 +1,18 @@
 <template>
     <nav-bar></nav-bar>
     <div class="container-fluid banner-div">
-        <div class="container d-flex align-items-center h-100 flex-row-reverse">
+        <div class="container d-flex align-items-center h-100">
             <h1 class="banner-title">春風和煦 柳條垂下</h1>
         </div>
     </div>
-    <div class="container">
+    <div class="container-lg">
         <bread-crumb />
     </div>
-    <div class="container logo-div text-center" style="margin: 0 auto;">
+    <div class="container-lg logo-div text-center" style="margin: 0 auto;">
         <img src="@/assets/images/season/logo/spring-logo.png" alt="" style="width: 90px;">
         <h1 class="banner-title text-center">春</h1>
     </div>
-    <div class="container" style="margin-bottom: 150px;">
+    <div class="container-lg" style="margin-bottom: 150px;">
         <div class="row position-relative">
             <img src="@/assets/images/season/spring/spring.png" alt="" class="w-100">
             <div class="position-absolute image-card" :style="{ marginTop: -titleHeight - 8 + 'px' }">
@@ -21,12 +21,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col" id="intro-content">
-                <p class="lh-lg">
-                    春天是日本最迷人的季節之一，因為它擁有櫻花綻放的美景，吸引著來自世界各地的遊客。在春天的日本，您將沉浸在滿目蔚藍的櫻花海洋中。不論是東京的上野公園、京都的哲學之道還是大阪的大阪城公園，無處不見櫻花盛開的景象，為您帶來無盡的賞花樂趣。此外，油菜花、杜鵑花等各式花卉也在春季開滿了整個山野，如同一幅色彩繽紛的畫作。您可以選擇前往富士山腳下、北海道的花海或是四國的名勝古蹟，感受不同地區的花季風情。
+            <div class="col-12 col-lg-6" id="intro-content">
+                <p class="lh-lg" :style="{ marginTop: -titleHeight + 'px' }">
+                    春天是日本最迷人的季節之一，櫻花綻放的美景吸引著來自世界各地的遊客。在日本，您將沉浸在滿目蔚藍的櫻花海洋中。不論是東京的上野公園還是大阪的大阪城公園，無處不見櫻花盛開的景象，為您帶來無盡的賞花樂趣。油菜花、杜鵑花等各式花卉也在春季開滿了整個山野，如同一幅色彩繽紛的畫作。您可以選擇前往富士山腳下、北海道的花海或是四國的名勝古蹟，感受不同地區的花季風情。
                 </p>
             </div>
-            <div class="col"></div>
         </div>
     </div>
     <div class="container masonry-div">
@@ -36,7 +35,7 @@
         <masonry-wall :items="files" :ssr-columns="1" :column-width="300" :gap="12">
             <template #default="{ item }">
                 <div>
-                    <img :src="getImageUrl(item)" alt="Image" style="width: 100%; height: 100%;" />
+                    <img :src="getImageUrl(item)" alt="Image" style="width: 100%;" />
                     <!-- <h1>{{ item }}</h1> -->
                 </div>
             </template>
@@ -61,19 +60,26 @@ export default {
         //A-div區塊調整
         const titleElement = ref(null);
         const titleHeight = ref(0);
+        const imgElement = ref(null);
+        const imgHeight = ref(0);
 
-        const updateTitleHeight = () => {
+        const updateHeight = () => {
             if (titleElement.value) {
                 titleHeight.value = titleElement.value.scrollHeight;
+            }
+            if (imgElement.value) {
+                const page_width = document.documentElement.clientWidth;
+                if(page_width >= 992)
+                imgHeight.value = imgElement.value.scrollHeight;
             }
         };
 
         onMounted(() => {
             nextTick(() => {
-                updateTitleHeight();
+                updateHeight();
             });
 
-            window.addEventListener('resize', updateTitleHeight);
+            window.addEventListener('resize', updateHeight);
         });
 
         //瀑布流部分
@@ -120,11 +126,13 @@ $logo-color: #F787A7;
     height: 550px;
     background-image: url('@/assets/images/season/spring/spring-banner.png');
     background-repeat: no-repeat;
+    background-position: center center;
 
     // margin-bottom: 50px;
     h1 {
         display: inline-block;
-        color: white;
+        color: #E0488A;
+        padding-bottom: 175px;
     }
 }
 
@@ -165,13 +173,22 @@ $logo-color: #F787A7;
 #intro-content {
     p {
         font-size: 1.1rem;
-        padding-left: 100px;
-        padding-top: 50px;
+        padding-left: 75px;
+        padding-top: 75px;
         font-weight: 500;
     }
 }
 
 .masonry-div {
     margin-bottom: 30px;
+}
+
+@media(max-width: 991px) {
+    #intro-content {
+        p {
+            padding-left: 0;
+            // padding-top: 300px;
+        }
+    }
 }
 </style>

@@ -1,75 +1,57 @@
 <template>
-  <div id="map"></div>
+  <div class="ParallaxContainer" ref="parallaxContainerRef">
+    <slot/>
+  </div>
 </template>
 
 <script>
-import { onMounted, ref, watch } from 'vue';
-import { Loader } from '@googlemaps/js-api-loader';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 export default {
-  props: {
-    lat: {
-      type: Number,
-      default: 43.11,
-    },
-    lon: {
-      type: Number,
-      default: 141.00,
-    },
-  },
-  setup(props) {
-    const map = ref(null);
-    const marker = ref(null);
-
-    const initMap = (lat, lon) => {
-      if (!lat || !lon) return;
-
-      const loader = new Loader({
-        apiKey: process.env.VUE_APP_GOOGLEMAP_KEY,
-        version: 'weekly',
-        libraries: ['maps', 'marker'],
-      });
-
-      loader.load().then(async () => {
-        const { google } = window;
-
-        if (!google || !google.maps) {
-          console.error("Google Maps API 未載入.");
-          return;
-        }
-
-        map.value = new google.maps.Map(document.getElementById("map"), {
-          center: { lat, lng: lon },
-          zoom: 8,
-        });
-        // 在地圖上建立標記
-        marker.value = new google.maps.Marker({
-          map: map.value,
-          position: { lat, lng: lon },
-          title: "Otaru",
-        });
-      });
+  name: 'ParallaxContainer',
+  setup() {
+    const parallaxContainerRef = ref(null);
+    const data = {
+      height: 0,
+      scrollFactor: 0,
+      width: 0,
     };
 
+    const calcParallax = () => {
+      const containerRect = parallaxContainerRef.value.getBoundingClientRect();
+
+      data.height = containerRect.height;
+      data.width = containerRect.width;
+
+      const viewportOffsetTop = containerRect.top;
+      const viewportOffsetBottom = window.innerHeight - viewportOffsetTop;
+
+      data.scrollFactor = viewportOffsetBottom / (window.innerHeight + data.height);
+    };
+
+    const eventHandler = () => requestAnimationFrame(calcParallax);
+
     onMounted(() => {
-      initMap(props.lat, props.lon);
+      calcParallax();
+      window.addEventListener('resize', eventHandler);
+      window.addEventListener('scroll', eventHandler);
     });
 
-    watch(() => [props.lat, props.lon], ([newLat, newLon]) => {
-      initMap(newLat, newLon);
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', eventHandler);
+      window.removeEventListener('scroll', eventHandler);
     });
 
-    return { map };
+    return {
+      parallaxContainerRef,
+      data,
+    };
   },
 };
 </script>
 
-<style lang="scss" scoped>
-@import '@/assets/css/color.scss';
-@import '@/assets/css/font.scss';
-
-#map {
-  width: 500px;
-  height: 450px;
+<style lang="scss">
+.ParallaxContainer {
+  overflow: hidden;
 }
 </style>

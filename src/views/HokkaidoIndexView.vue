@@ -211,7 +211,15 @@ export default {
     color: white;
   }
 }
+.title {
+  color: $primary-color;
+  margin-bottom: 30px;
 
+  img {
+    vertical-align: initial;
+    margin-right: 1rem;
+  }
+}
 .D-div {
   .sec-title {
     &::after {

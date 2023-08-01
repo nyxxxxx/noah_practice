@@ -68,7 +68,7 @@ export default {
     function toggle_searchbar() {
       if (!searchbarIsToggle) {
         $('#nav-menu').fadeOut();
-        $('#search-form').css('width', '350px');
+        $('#search-form').css('width', '300px');
         $('#search-input').css('display', 'block').focus();
         searchbarIsToggle = !searchbarIsToggle;
         icon_name.value = 'close.png';

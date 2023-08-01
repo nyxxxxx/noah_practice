@@ -1,34 +1,21 @@
 <template>
   <nav-bar></nav-bar>
   <!-- A-div -->
-  <div class="container">
+  <div class="container-lg">
     <!-- BreadCrumb -->
     <bread-crumb></bread-crumb>
     <div class="A-div">
       <div class="A-title">
         <h1 class="title"><img src="@/assets/images/logo/title_logo.png" alt="">區域風景</h1>
       </div>
-      <div class="row">
-        <div class="col"><japan-map /></div>
-        <div class="col">
-
+      <div class="row flex-column-reverse flex-md-row">
+        <div class="col-md col-lg"><japan-map /></div>
+        <div class="col-md col-lg mb-5 mb-md-0">
           <div class="row">
-            <!-- 左半部 -->
-            <div class="col-9">
+            <div class="col">
               <div class="intro-box">
                 <area-intro v-bind="show_content" />
               </div>
-            </div>
-            <!-- 右半部 -->
-            <div class="col-3">
-              <h2 class="sec-title" id="area-1">北海道</h2>
-              <h2 class="sec-title" id="area-2">東北</h2>
-              <h2 class="sec-title" id="area-3">關東</h2>
-              <h2 class="sec-title" id="area-4">中部</h2>
-              <h2 class="sec-title" id="area-5">關西</h2>
-              <h2 class="sec-title" id="area-6">中國</h2>
-              <h2 class="sec-title" id="area-7">四國</h2>
-              <h2 class="sec-title" id="area-8">九州沖繩</h2>
             </div>
           </div>
         </div>
@@ -36,61 +23,19 @@
     </div>
   </div><!-- A-div container end -->
   <!-- B-div -->
-  <div class="container">
+  <div class="container-lg">
     <div class="B-div">
       <div class="B-title">
         <h1 class="title"><img src="@/assets/images/logo/title_logo.png" alt="">探索地區</h1>
       </div>
 
-      <div class="row row-cols-4 gy-4">
-        <div class="col position-relative">
+      <div class="row row-cols-2 row-cols-md-4 gy-3 gy-md-4">
+        <div v-for="item in areaData" :key="item.id" class="col position-relative">
           <div class="img-box">
-            <router-link :to="{ name: 'area-hokkaido' }">
-              <img src="@/assets/images/area_page/B-body01.png" alt="" srcset="" class="w-100">
-              <h5 class="position-absolute">北海道</h5>
+            <router-link :to="item.regionLink">
+              <img :src="getImgUrl(item.regionImgSrc)" alt="" srcset="" class="w-100">
+              <h5 class="position-absolute fifth-title">{{ item.region }}</h5>
             </router-link>
-          </div>
-        </div>
-        <div class="col position-relative">
-          <div class="img-box">
-            <img src="@/assets/images/area_page/B-body02.png" alt="" srcset="" class="w-100">
-            <h5 class="position-absolute">東北</h5>
-          </div>
-        </div>
-        <div class="col position-relative">
-          <div class="img-box">
-            <img src="@/assets/images/area_page/B-body03.png" alt="" srcset="" class="w-100">
-            <h5 class="position-absolute">關東</h5>
-          </div>
-        </div>
-        <div class="col position-relative">
-          <div class="img-box">
-            <img src="@/assets/images/area_page/B-body04.png" alt="" srcset="" class="w-100">
-            <h5 class="position-absolute">中部</h5>
-          </div>
-        </div>
-        <div class="col position-relative">
-          <div class="img-box">
-            <img src="@/assets/images/area_page/B-body05.png" alt="" srcset="" class="w-100">
-            <h5 class="position-absolute">關西</h5>
-          </div>
-        </div>
-        <div class="col position-relative">
-          <div class="img-box">
-            <img src="@/assets/images/area_page/B-body06.png" alt="" srcset="" class="w-100">
-            <h5 class="position-absolute">中國</h5>
-          </div>
-        </div>
-        <div class="col position-relative">
-          <div class="img-box">
-            <img src="@/assets/images/area_page/B-body07.png" alt="" srcset="" class="w-100">
-            <h5 class="position-absolute">四國</h5>
-          </div>
-        </div>
-        <div class="col position-relative">
-          <div class="img-box">
-            <img src="@/assets/images/area_page/B-body08.png" alt="" srcset="" class="w-100">
-            <h5 class="position-absolute">九州沖繩</h5>
           </div>
         </div>
       </div>
@@ -125,6 +70,7 @@ export default {
   setup() {
 
     let show_content = ref({
+      region: '北海道',
       title: '札幌 | 旭川 | 函館 | 小樽',
       content: '北海道（Hokkaido）位於日本最北部，面積約77,983平方km，人口約547萬人，省會位於札幌市。 北海道瀕臨日本海、鄂霍次克海和太平洋，土地遼闊，自然優美，物產豐富。 北海道冬季冰天雪地，可觀賞冰雪節、流冰，也是冬季旅遊和滑雪的勝地。 夏季原野鮮花盛開，氣候涼爽，是日本著名避暑勝地。',
       ImgSrc1: 'A-region01-01.png',
@@ -135,6 +81,9 @@ export default {
     let areaData = ref([
       {
         id: 1,
+        region: '北海道',
+        regionImgSrc: 'B-body01.png',
+        regionLink: { name: 'area-hokkaido' },
         title: '札幌 | 旭川 | 函館 | 小樽',
         content: '北海道（Hokkaido）位於日本最北部，面積約77,983平方km，人口約547萬人，省會位於札幌市。 北海道瀕臨日本海、鄂霍次克海和太平洋，土地遼闊，自然優美，物產豐富。 北海道冬季冰天雪地，可觀賞冰雪節、流冰，也是冬季旅遊和滑雪的勝地。 夏季原野鮮花盛開，氣候涼爽，是日本著名避暑勝地。',
         ImgSrc1: 'A-region01-01.png',
@@ -144,6 +93,9 @@ export default {
       },
       {
         id: 2,
+        region: '東北',
+        regionImgSrc: 'B-body02.png',
+        regionLink: '',
         title: '宮城 | 福島 | 青森 | 山形 | 秋田 | 岩手',
         content: '日本的東北地區位於本州島的東北方，是一處擁有眾多秘境絕景與四季景緻的旅遊寶地，例如擁有東北最大都市仙台的宮城縣、彷彿精靈園地的青森縣奧入瀨溪流、秋楓美不勝收的秋田縣抱返溪谷、吸引全世界前來欣賞的山形藏王樹冰等等，隨便舉例都是傳說級的美景。',
         ImgSrc1: 'A-region02-01.png',
@@ -153,6 +105,9 @@ export default {
       },
       {
         id: 3,
+        region: '關東',
+        regionImgSrc: 'B-body03.png',
+        regionLink: '',
         title: '東京 | 千葉 | 群馬 | 神奈川 | 栃木 | 埼玉',
         content: '位於本州中部偏東靠太平洋，由茨城縣、栃木縣、群馬縣、埼玉縣、千葉縣、東京都、神奈川縣所構成，有時還會加上山梨縣。其以東京為中心，居住人口超過4千3百萬，聚集超過日本三分之一的人口；以關東地方1都3縣為核心的東京都會區（首都圈），人口逾3千7百萬人，是世界最大都市圈。',
         ImgSrc1: 'A-region03-01.png',
@@ -162,6 +117,57 @@ export default {
       },
       {
         id: 4,
+        region: '中部',
+        regionImgSrc: 'B-body04.png',
+        regionLink: '',
+        title: '石川 | 長野 | 新瀉 | 靜岡 | 愛知 | 富山',
+        content: '中部地區是日本旅遊資源的寶庫，風景秀麗且充滿歷史文化，也以溫泉聞名，提供一流的溫泉度假體驗。',
+        ImgSrc1: 'A-region04-01.png',
+        ImgSrc2: 'A-region04-02.png',
+        ImgSrc3: 'A-region04-03.png',
+        ImgSrc4: 'A-region04-04.png',
+      },
+      {
+        id: 5,
+        region: '關西',
+        regionImgSrc: 'B-body05.png',
+        regionLink: '',
+        title: '石川 | 長野 | 新瀉 | 靜岡 | 愛知 | 富山',
+        content: '中部地區是日本旅遊資源的寶庫，風景秀麗且充滿歷史文化，也以溫泉聞名，提供一流的溫泉度假體驗。',
+        ImgSrc1: 'A-region04-01.png',
+        ImgSrc2: 'A-region04-02.png',
+        ImgSrc3: 'A-region04-03.png',
+        ImgSrc4: 'A-region04-04.png',
+      },
+      {
+        id: 6,
+        region: '中國',
+        regionImgSrc: 'B-body06.png',
+        regionLink: '',
+        title: '石川 | 長野 | 新瀉 | 靜岡 | 愛知 | 富山',
+        content: '中部地區是日本旅遊資源的寶庫，風景秀麗且充滿歷史文化，也以溫泉聞名，提供一流的溫泉度假體驗。',
+        ImgSrc1: 'A-region04-01.png',
+        ImgSrc2: 'A-region04-02.png',
+        ImgSrc3: 'A-region04-03.png',
+        ImgSrc4: 'A-region04-04.png',
+      },
+      {
+        id: 7,
+        region: '四國',
+        regionImgSrc: 'B-body07.png',
+        regionLink: '',
+        title: '石川 | 長野 | 新瀉 | 靜岡 | 愛知 | 富山',
+        content: '中部地區是日本旅遊資源的寶庫，風景秀麗且充滿歷史文化，也以溫泉聞名，提供一流的溫泉度假體驗。',
+        ImgSrc1: 'A-region04-01.png',
+        ImgSrc2: 'A-region04-02.png',
+        ImgSrc3: 'A-region04-03.png',
+        ImgSrc4: 'A-region04-04.png',
+      },
+      {
+        id: 8,
+        region: '九州沖繩',
+        regionImgSrc: 'B-body08.png',
+        regionLink: '',
         title: '石川 | 長野 | 新瀉 | 靜岡 | 愛知 | 富山',
         content: '中部地區是日本旅遊資源的寶庫，風景秀麗且充滿歷史文化，也以溫泉聞名，提供一流的溫泉度假體驗。',
         ImgSrc1: 'A-region04-01.png',
@@ -170,10 +176,15 @@ export default {
         ImgSrc4: 'A-region04-04.png',
       },
     ]);
+    //取得圖片連結
+    function getImgUrl(src) {
+      return require(`@/assets/images/area_page/${src}`);
+    }
     //改變內容function
     function change_content(id) {
       const area = areaData.value.find(area => area.id === id);
       if (area) {
+        show_content.value.region = area.region;
         show_content.value.title = area.title;
         show_content.value.content = area.content;
         show_content.value.ImgSrc1 = area.ImgSrc1;
@@ -184,54 +195,49 @@ export default {
     }
     onMounted(() => {
       $(document).ready(function () {
-        for (let i = 1; i <= 8; i++) {
+        for (let i = 1; i <= 7; i++) {
           //先將標記過的地圖、標題變回原來的顏色
           //再依hover到的地圖將元素變色
           $(`#region-${i}`).hover(
             function () {
-              $('.sec-title').filter(function () {
-                return $(this).css('color').replace(/\s/g, '') === 'rgb(255,165,137)';
-              }).css('color', 'black');
               //地圖變回原色
               $('path').filter(function () {
                 return $(this).css('fill').replace(/\s/g, '') === 'rgb(255,165,137)';
               }).css('fill', '#98D98E');
-              $(`#area-${i}`).css('color', '#FFA589');
-              $(`#region-${i}`).css('fill', '#FFA589');
-              change_content(i);
-            },
-          );
-          //先將標記過的地圖、標題變回原來的顏色
-          //再依hover到的標題將元素變色
-          $(`#area-${i}`).hover(
-            function () {
-              //標題變回原色
-              $('.sec-title').filter(function () {
-                return $(this).css('color').replace(/\s/g, '') === 'rgb(255,165,137)';
-              }).css('color', 'black');
-              //地圖變回原色
-              $('path').filter(function () {
-                return $(this).css('fill').replace(/\s/g, '') === 'rgb(255,165,137)';
-              }).css('fill', '#98D98E');
-              //標題、地圖變色
-              $(`#area-${i}`).css('color', '#FFA589');
               $(`#region-${i}`).css('fill', '#FFA589');
               change_content(i);
             },
           );
         }
+        //沖繩and九州
+        $('#region-8').hover(function () {
+          $('path').filter(function () {
+            return $(this).css('fill').replace(/\s/g, '') === 'rgb(255,165,137)';
+          }).css('fill', '#98D98E');
+          $('#region-8').css('fill', '#FFA589');
+          $('#region-8-2').css('fill', '#FFA589');
+            change_content(8);
+        });
+        $('#region-8-2').hover(function () {
+          $('path').filter(function () {
+            return $(this).css('fill').replace(/\s/g, '') === 'rgb(255,165,137)';
+          }).css('fill', '#98D98E');
+          $('#region-8').css('fill', '#FFA589');
+          $('#region-8-2').css('fill', '#FFA589');
+            change_content(8);
+        });
         //預設地區顏色
         $('.sec-title').filter(function () {
           return $(this).css('color').replace(/\s/g, '') === 'rgb(255,165,137)';
         }).css('color', 'black');
         $('#region-1').css('fill', '#FFA589');
-        $('#area-1').css('color', '#FFA589');
       });
     });
 
     return {
       show_content,
       areaData,
+      getImgUrl,
     }
   },
 }
@@ -292,7 +298,6 @@ export default {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    font-size: 1.5rem;
     font-weight: bold;
     color: white;
   }
