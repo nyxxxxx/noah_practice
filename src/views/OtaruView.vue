@@ -85,7 +85,7 @@ export default {
     const map_lon = ref(0)
 
     function handleLocation(data) {
-      console.log('收到經緯度數據:', data.lat, data.lon);
+      // console.log('收到經緯度數據:', data.lat, data.lon);
       map_lat.value = data.lat;
       map_lon.value = data.lon;
     }

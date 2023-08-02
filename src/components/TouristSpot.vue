@@ -49,14 +49,12 @@ export default {
   left: 1.5rem;
   bottom: 0;
   font-weight: bold;
-  font-size: 1.25rem;
   color: white;
 }
 
 .fourth-title {
   left: 1.5rem;
   bottom: 0;
-  font-size: 1.5rem;
   font-weight: bold;
   color: white;
 }

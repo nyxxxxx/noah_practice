@@ -12,23 +12,23 @@
         <img src="@/assets/images/season/logo/spring-logo.png" alt="" style="width: 90px;">
         <h1 class="banner-title text-center">春</h1>
     </div>
-    <div class="container-lg" style="margin-bottom: 150px;">
+    <div class="container-xl" style="margin-bottom: 150px;">
         <div class="row position-relative">
             <img src="@/assets/images/season/spring/spring.png" alt="" class="w-100">
             <div class="position-absolute image-card" :style="{ marginTop: -titleHeight - 8 + 'px' }">
-                <h2 class="sec-title" ref="titleElement">這是即將到來的 <br> 春天</h2>
-                <img src="@/assets/images/season/spring/test-img.png" alt="">
+                <h2 class="sec-title" ref="titleElement">百花齊放的 <br> 春天</h2>
+                <img src="@/assets/images/season/spring/test-img.png" ref="imgElement" alt="">
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-6" id="intro-content">
-                <p class="lh-lg" :style="{ marginTop: -titleHeight + 'px' }">
+            <div class="col-12 col-lg-7" id="intro-content" :style="{marginTop: imgHeight +'px'}">
+                <p class="lh-lg siexth-title">
                     春天是日本最迷人的季節之一，櫻花綻放的美景吸引著來自世界各地的遊客。在日本，您將沉浸在滿目蔚藍的櫻花海洋中。不論是東京的上野公園還是大阪的大阪城公園，無處不見櫻花盛開的景象，為您帶來無盡的賞花樂趣。油菜花、杜鵑花等各式花卉也在春季開滿了整個山野，如同一幅色彩繽紛的畫作。您可以選擇前往富士山腳下、北海道的花海或是四國的名勝古蹟，感受不同地區的花季風情。
                 </p>
             </div>
         </div>
     </div>
-    <div class="container masonry-div">
+    <div class="container-lg masonry-div">
         <div id="C-title">
             <h1 class="title"><img src="@/assets/images/logo/title_logo.png" alt="">景點預覽</h1>
         </div>
@@ -68,10 +68,15 @@ export default {
                 titleHeight.value = titleElement.value.scrollHeight;
             }
             if (imgElement.value) {
-                const page_width = document.documentElement.clientWidth;
-                if(page_width >= 992)
-                imgHeight.value = imgElement.value.scrollHeight;
+                const pageWidth = window.window.innerWidth;
+                if (pageWidth >= 992) {
+                    imgHeight.value = 0;
+                }
+                else {
+                    imgHeight.value = imgElement.value.scrollHeight;
+                }
             }
+
         };
 
         onMounted(() => {
@@ -109,6 +114,8 @@ export default {
         return {
             titleElement,
             titleHeight,
+            imgElement,
+            imgHeight,
             getImageUrl,
             files,
         };
@@ -172,9 +179,7 @@ $logo-color: #F787A7;
 
 #intro-content {
     p {
-        font-size: 1.1rem;
-        padding-left: 75px;
-        padding-top: 75px;
+        padding-left: 25px;
         font-weight: 500;
     }
 }

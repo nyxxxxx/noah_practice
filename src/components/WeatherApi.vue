@@ -6,13 +6,17 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
-        <h5 class="fifth-title">地點:{{ queryCity_zh }} </h5>
-        <h5 class="fifth-title">溫度:{{ weather.current.temp_c }}°C </h5>
-        <h5 class="fifth-title">情況:{{ weather.current.condition.text }}</h5>
+      <div class="col-7">
+        <div style="padding-left: 12px;">
+          <h5 class="siexth-title">地點:{{ queryCity_zh }} </h5>
+          <h5 class="siexth-title">溫度:{{ weather.current.temp_c }}°C </h5>
+          <h5 class="siexth-title">情況:{{ weather.current.condition.text }}</h5>
+        </div>
       </div>
-      <div class="col">
-        <img :src="weather.current.condition.icon" alt="" class="w-50">
+      <div class="col-5">
+        <div style="max-height: 100px; overflow: hidden;">
+          <img :src="weather.current.condition.icon" alt="" class="w-75">
+        </div>
       </div>
     </div>
     <!-- <p> {{ weather.location.name}}</p> -->
@@ -73,7 +77,7 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 .weather-div {
   box-shadow: 0px 0px 17px 1px rgba(176, 176, 176, 0.73);
   -webkit-box-shadow: 0px 0px 17px 1px rgba(176, 176, 176, 0.73);

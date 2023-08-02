@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li v-for="(item, i) in breadcrumbList" :key="i">
-        <router-link :to="item.path">{{ item.meta.title }}</router-link>
+        <router-link :to="item.path" class="content-little">{{ item.meta.title }}</router-link>
       </li>
     </ul>
   </div>
@@ -53,7 +53,7 @@ ul {
 
     a {
       color: $primary-color;
-      // font-size: 0.8rem;
+      // font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
     }

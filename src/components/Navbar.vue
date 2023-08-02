@@ -258,6 +258,12 @@ $navlink-color: rgb(255, 255, 255);
     }
   }
 }
+
+@media (max-width: 567px){
+  #search-form {
+    max-width: 250px;
+  }
+}
 </style>
 
 
