@@ -11,24 +11,17 @@
     </div>
   </div>
   <!-- A-div -->
-  <div class="container">
+  <div class="container-lg">
     <!-- BreadCrumb -->
     <bread-crumb></bread-crumb>
     <div class="A-div">
       <div class="row">
         <!-- A-div-left -->
         <div class="col-8">
-          <div class="row row-cols-3 mb-4">
-            <div class="col"><area-icon img_file="A-left-img-03.png" icon_file="A-left-icon-03.png" icon_title="活動" @click="scrollToTitle('B-title')" />
-            </div>
-            <div class="col"><area-icon img_file="A-left-img-02.png" icon_file="A-left-icon-02.png" icon_title="景點" @click="scrollToTitle('C-title')" />
-            </div>
-            <div class="col"><area-icon img_file="A-left-img-01.png" icon_file="A-left-icon-01.png" icon_title="美食" @click="scrollToTitle('D-title')" />
-            </div>
-          </div>
           <div id="A-title">
             <h1 class="title"><img src="@/assets/images/logo/title_logo.png" alt="">區域特色</h1>
-            <p>
+            <h3 class="third-title">北海道的大自然適合多種戶外活動，而在山岳湖泊圍繞下的北海道各城市，更有多元化的美食與文化。</h3>
+            <p class="lh-lg siexth-title">
               北海道地區獨具特色：豐富的自然景觀包括壯麗的山脈、湖泊和海岸線，四季變化明顯，櫻花、薰衣草和紅葉吸引遊客。海鮮美食豐富，尤其以螃蟹、鮭魚和帆立貝聞名。溫泉鄉提供放鬆和保健療程。農業產品優質，乳製品尤為著名。阿伊努族文化是獨特的文化遺產。冬季的銀白世界和冰雪節慶增添活力。北海道的多樣特色吸引遊客體驗獨一無二的魅力。
             </p>
           </div>
@@ -43,7 +36,7 @@
   </div>
   <!-- A-div end -->
   <!-- B-div start -->
-  <div class="container">
+  <div class="container-lg">
     <div class="B-div">
       <div id="B-title" ref="B-title">
         <h1 class="title"><img src="@/assets/images/logo/title_logo.png" alt="">地方活動</h1>
@@ -58,7 +51,7 @@
   </div>
   <!-- B-div end -->
   <!-- C-div start -->
-  <div class="container">
+  <div class="container-lg">
     <div class="C-div">
       <div id="C-title" ref="C-title">
         <h1 class="title"><img src="@/assets/images/logo/title_logo.png" alt="">景點推薦</h1>
@@ -83,7 +76,7 @@
   </div>
   <!-- C-div end -->
   <!-- D-div start -->
-  <div class="container">
+  <div class="container-lg">
     <div class="D-div">
       <div id="D-title" ref="D-title">
         <h1 class="title"><img src="@/assets/images/logo/title_logo.png" alt="">老饕美食</h1>
@@ -164,7 +157,7 @@
 import NavBar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue';
 import BreadCrumb from '@/components/BreadCrumb.vue';
-import AreaIcon from '@/components/AreaIcon.vue';
+// import AreaIcon from '@/components/AreaIcon.vue';
 import AreaCard from '@/components/AreaCard.vue';
 import TouristSpot from '@/components/TouristSpot.vue';
 
@@ -173,7 +166,7 @@ export default {
     NavBar,
     Footer,
     BreadCrumb,
-    AreaIcon,
+    // AreaIcon,
     AreaCard,
     TouristSpot,
   },
