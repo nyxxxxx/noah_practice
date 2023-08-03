@@ -18,10 +18,10 @@
                 <li class="nav-item drop-menu">
                   <a href="" @click.prevent="" class="first-link">季節景點</a>
                   <ul class="shadow">
-                    <li><router-link to="/season/spring">春天</router-link></li>
-                    <li><router-link to="">夏天</router-link></li>
-                    <li><router-link to="">秋天</router-link></li>
-                    <li><router-link to="/season/winter">冬天</router-link></li>
+                    <li><router-link to="/season/spring">春 天</router-link></li>
+                    <li><router-link to="">夏 天</router-link></li>
+                    <li><router-link to="">秋 天</router-link></li>
+                    <li><router-link to="/season/winter">冬 天</router-link></li>
                   </ul>
                 </li>
                 <li class="nav-item"><router-link to="/about" class="first-link">關於我們</router-link></li>
@@ -53,7 +53,15 @@
       <div class="d-lg-none">
         <ul id="toggle-menu">
           <li class="nav-item"><router-link to="/area">區域風景</router-link></li>
-          <li class="nav-item drop-menu"><router-link to="">季節景點</router-link></li>
+          <li class="nav-item drop-menu">
+            <router-link to="">季節景點</router-link>
+            <ul>
+              <li><router-link to="/season/spring">春 天</router-link></li>
+              <li><router-link to="">夏 天</router-link></li>
+              <li><router-link to="">秋 天</router-link></li>
+              <li><router-link to="/season/winter">冬 天</router-link></li>
+            </ul>
+          </li>
           <li class="nav-item"><router-link to="/about">關於我們</router-link></li>
         </ul>
       </div>
@@ -188,13 +196,16 @@ $navlink-color: rgb(255, 255, 255);
         }
       }
     }
+
     .drop-menu {
       position: relative;
+
       &:hover {
         ul {
           display: block;
         }
       }
+
       ul {
         top: 55px;
         display: none;
@@ -203,17 +214,21 @@ $navlink-color: rgb(255, 255, 255);
         list-style: none;
         flex-direction: column;
         width: 100%;
+
         li {
           padding: 10px;
           background-color: white;
+
           a {
             display: block;
             text-decoration: none;
             color: $font-color;
             width: 100%;
           }
+
           &:hover {
             background-color: $primary-color;
+
             a {
               color: white;
             }
@@ -221,6 +236,7 @@ $navlink-color: rgb(255, 255, 255);
         }
       }
     }
+
     .active {
       &::after {
         width: 80%;
@@ -234,6 +250,7 @@ $navlink-color: rgb(255, 255, 255);
     width: 24px;
     border: none;
     margin-left: 16px;
+    background-color: #FFF;
 
     .toggler-stick {
       content: '';
@@ -296,13 +313,17 @@ $navlink-color: rgb(255, 255, 255);
       font-size: 1.1rem;
     }
   }
+  .drop-menu {
+    ul {
+      list-style: none;
+    }
+  }
 }
 
-@media (max-width: 567px){
+@media (max-width: 567px) {
   #search-form {
     max-width: 250px;
   }
-}
-</style>
+}</style>
 
 
