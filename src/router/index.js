@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import SeasonView from '@/views/SeasonView.vue'
+import SeasonWinterView from '@/views/SeasonWinterView.vue'
+import SeasonSpringView from '@/views/SeasonSpringView.vue'
 import JapanAreaView from '@/views/JapanAreaView.vue'
 import AreaIndexView from '@/views/AreaIndexView.vue'
-import HokkaidoIndexView from '@/views/HokkaidoIndexView.vue'
 import HokkaidoView from '@/views/HokkaidoView.vue'
+import HokkaidoIndexView from '@/views/HokkaidoIndexView.vue'
+import KansaiIndexView from '@/views/KansaiIndexView.vue'
+import KyotoView from '@/views/KyotoView.vue'
 import OtaruView from '@/views/OtaruView.vue'
 import AboutView from '@/views/AboutView.vue'
 
@@ -25,8 +28,20 @@ const routes = [
   {
     path: '/season',
     name: 'season',
-    component: SeasonView,
     meta: { title: '季節景點' },
+    children: [
+    {
+      path: 'spring',
+      name: 'season-spring',
+      component: SeasonSpringView,
+      meta: { title: '春天' },
+    },
+    {
+      path: 'winter',
+      name: 'season-winter',
+      component: SeasonWinterView,
+      meta: { title: '冬天' },
+    }],
   },
   {
     path: '/about',
@@ -62,6 +77,24 @@ const routes = [
         name: 'otaru',
         component: OtaruView,
         meta: { title: '小樽市' },
+      }]
+    },
+    {
+      path: 'kansai',
+      name: 'area-kansai',
+      component: HokkaidoView,
+      meta: { title: '關西' },
+      redirect: { name: 'kansai-index' },
+      children: [{
+        path: '',
+        name: 'kansai-index',
+        component: KansaiIndexView,
+      },
+      {
+        path: 'kyoto',
+        name: 'kyoto',
+        component: KyotoView,
+        meta: { title: '京都' },
       }]
     }]
   },
