@@ -95,9 +95,10 @@ export default {
       fetchfiles();
     });
     //讀取資料夾內圖片檔案名稱
+    const season = 'spring';
     async function fetchfiles() {
       try {
-        const response = await fetch('http://localhost:3000/files');
+        const response = await fetch(`http://localhost:3000/files?season=${season}`);
         if (!response.ok) {
           throw new Error('獲取檔案清單失敗！');
         }
@@ -109,7 +110,7 @@ export default {
     }
     //img src
     function getImageUrl(filename) {
-      return require(`@/assets/images/season/spring/${filename}`);
+      return require(`@/assets/images/season/${season}/${filename}`);
     }
     return {
       titleElement,
@@ -185,7 +186,8 @@ $logo-color: #F787A7;
 }
 
 .masonry-div {
-  margin-bottom: 30px;
+  margin-top: 200px;
+  margin-bottom: 100px;
 }
 
 @media(max-width: 991px) {

@@ -2,28 +2,28 @@
   <nav-bar></nav-bar>
   <div class="container-fluid banner-div">
     <div class="container d-flex align-items-center h-100">
-      <h1 class="banner-title">春風和煦 柳條垂下</h1>
+      <h1 class="banner-title">雪舞冬日 梅花盛放</h1>
     </div>
   </div>
   <div class="container-lg">
     <bread-crumb />
   </div>
   <div class="container-lg logo-div text-center" style="margin: 0 auto;">
-    <img src="@/assets/images/season/logo/spring-logo.png" alt="" style="width: 90px;">
-    <h1 class="banner-title text-center">春</h1>
+    <img src="@/assets/images/season/logo/winter-logo.png" alt="" style="width: 90px;">
+    <h1 class="banner-title text-center">冬</h1>
   </div>
   <div class="container-xl" style="margin-bottom: 150px;">
     <div class="row position-relative">
-      <img src="@/assets/images/season/spring/spring.png" alt="" class="w-100">
+      <img src="@/assets/images/season/winter/winter.png" alt="" class="w-100">
       <div class="position-absolute image-card" :style="{ marginTop: -titleHeight - 8 + 'px' }">
-        <h2 class="sec-title" ref="titleElement">百花齊放的 <br> 春天</h2>
-        <img src="@/assets/images/season/spring/test-img.png" ref="imgElement" alt="">
+        <h2 class="sec-title" ref="titleElement">瑞雪飄揚的 <br> 冬日</h2>
+        <img src="@/assets/images/season/winter/winter1.png" ref="imgElement" alt="">
       </div>
     </div>
     <div class="row">
       <div class="col-12 col-lg-7" id="intro-content" :style="{ marginTop: imgHeight + 'px' }">
         <p class="lh-lg siexth-title">
-          春天是日本最迷人的季節之一，櫻花綻放的美景吸引著來自世界各地的遊客。在日本，您將沉浸在滿目蔚藍的櫻花海洋中。不論是東京的上野公園還是大阪的大阪城公園，無處不見櫻花盛開的景象，為您帶來無盡的賞花樂趣。油菜花、杜鵑花等各式花卉也在春季開滿了整個山野，如同一幅色彩繽紛的畫作。您可以選擇前往富士山腳下、北海道的花海或是四國的名勝古蹟，感受不同地區的花季風情。
+          冬季是日本四季中獨具魅力的一段時光。當初雪飄落，大地被覆蓋著銀白色的絨毯，仿佛是一幅冰雪王國的畫卷。北海道的冬季特別值得一遊，您可以探索被白雪覆蓋的森林，享受冰雕節的奇妙體驗。而東京的迪士尼度假區在冬天也展現了獨特的魅力，用燈光點綴的冬日夜晚更顯得繽紛夢幻。
         </p>
       </div>
     </div>
@@ -95,9 +95,10 @@ export default {
       fetchfiles();
     });
     //讀取資料夾內圖片檔案名稱
+    const season = 'winter';
     async function fetchfiles() {
       try {
-        const response = await fetch('http://localhost:3000/files');
+        const response = await fetch(`http://localhost:3000/files?season=${season}`);
         if (!response.ok) {
           throw new Error('獲取檔案清單失敗！');
         }
@@ -109,7 +110,7 @@ export default {
     }
     //img src
     function getImageUrl(filename) {
-      return require(`@/assets/images/season/spring/${filename}`);
+      return require(`@/assets/images/season/${season}/${filename}`);
     }
     return {
       titleElement,
@@ -127,18 +128,18 @@ export default {
 @import '@/assets/css/color.scss'; //color css
 @import '@/assets/css/font.scss'; //font css
 
-$logo-color: #F787A7;
+$logo-color: #4294FF;
 
 .banner-div {
   height: 550px;
-  background-image: url('@/assets/images/season/spring/spring-banner.png');
+  background-image: url('@/assets/images/season/winter/winter-banner.png');
   background-repeat: no-repeat;
   background-position: center center;
 
   // margin-bottom: 50px;
   h1 {
     display: inline-block;
-    color: #E0488A;
+    color: $logo-color;
     padding-bottom: 175px;
   }
 }
@@ -159,7 +160,7 @@ $logo-color: #F787A7;
 }
 
 .image-card {
-  background-image: linear-gradient(180deg, #d03c62 0%, #ec74c1 100%);
+  background-image: linear-gradient(180deg, #3c3ed0 0%, #74bcec 100%);
   color: white;
   width: 40%;
   right: 0;
@@ -185,7 +186,8 @@ $logo-color: #F787A7;
 }
 
 .masonry-div {
-  margin-bottom: 30px;
+  margin-top: 200px;
+  margin-bottom: 100px;
 }
 
 @media(max-width: 991px) {

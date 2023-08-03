@@ -5,8 +5,8 @@
   <div class="container-fluid gx-0">
     <div class="banner-div d-flex align-items-center">
       <div class="container">
-        <h1 class="banner-title">北海道</h1>
-        <h4 class="fourth-title">在北海道的自然荒野縱情戶外活動，城鎮依傍於山林湖濱之間，盡享眾多特色美食與文化</h4>
+        <h1 class="banner-title">關西</h1>
+        <h4 class="fourth-title">在關西的歷史古都漫遊著千年文化，城市融合於現代與傳統之間，品味著多樣美食與藝術精髓</h4>
       </div>
     </div>
   </div>
@@ -21,9 +21,9 @@
           <div id="A-title">
             <h1 class="title"><img src="@/assets/images/logo/title_logo.png" alt="">區域特色</h1>
           </div>
-          <h3 class="third-title" id="A-intro-title">北海道的大自然適合多種戶外活動，而在山岳湖泊圍繞下的北海道各城市，更有多元化的美食與文化。</h3>
+          <h3 class="third-title" id="A-intro-title">關西地區蘊藏豐富的歷史文化，古都遺跡彷彿穿越時空，城市現代風情與古典韻味交相輝映。漫遊關西，品味多元美食與藝術之美。</h3>
           <p class="lh-lg siexth-title">
-            北海道地區獨具特色：豐富的自然景觀包括壯麗的山脈、湖泊和海岸線，四季變化明顯，櫻花、薰衣草和紅葉吸引遊客。海鮮美食豐富，尤其以螃蟹、鮭魚和帆立貝聞名。溫泉鄉提供放鬆和保健療程。農業產品優質，乳製品尤為著名。阿伊努族文化是獨特的文化遺產。冬季的銀白世界和冰雪節慶增添活力。北海道的多樣特色吸引遊客體驗獨一無二的魅力。
+            關西地區充滿著令人著迷的多樣魅力：這片土地承載著悠久的歷史和文化遺產，讓您彷彿時光倒流穿越古城古跡，感受著千年傳承的古老智慧。四季交替帶來著不同的景觀，春季滿山遍野的櫻花綻放，秋季楓紅如火點綴山林，冬季白雪覆蓋整個大地，呈現出各自獨有的風情。
           </p>
         </div>
         <!-- A-div-right -->
@@ -78,10 +78,10 @@
         <h1 class="title"><img src="@/assets/images/logo/title_logo.png" alt="">地方活動</h1>
       </div>
       <div class="row row-cols-2 row-cols-md-4 gy-3 gy-md-0">
-        <div class="col"><area-card event_img="B-region01-01.png" event_title="東藻琴芝櫻花祭" /></div>
-        <div class="col"><area-card event_img="B-region01-02.png" event_title="北龍向日葵祭" /></div>
-        <div class="col"><area-card event_img="B-region01-03.png" event_title="札幌雪祭" /></div>
-        <div class="col"><area-card event_img="B-region01-04.png" event_title="北海肚臍祭" /></div>
+        <div class="col"><area-card event_img="B-region05-01.png" event_title="祇園祭" /></div>
+        <div class="col"><area-card event_img="B-region05-02.png" event_title="薪能" /></div>
+        <div class="col"><area-card event_img="B-region05-03.png" event_title="那智扇祭" /></div>
+        <div class="col"><area-card event_img="B-region05-04.png" event_title="十日戎" /></div>
       </div>
     </div>
   </div>
@@ -96,16 +96,16 @@
       <div class="row mb-4">
         <!-- 大圖*1 -->
         <div class="col-12 col-md gy-3 gy-md-0">
-          <tourist-spot title_type="h4" :folder_name=folder spot_file="C-region01-01.png" spot_title="小樽運河"
+          <tourist-spot title_type="h4" :folder_name=folder spot_file="C-region05-01.png" spot_title="伏見稻荷大社"
             router_name="kansai/kyoto" />
         </div>
         <!-- 小圖*4 -->
         <div class="col-12 col-md gy-3 gy-md-0">
           <div class="row row-cols-2 gy-3">
-            <tourist-spot title_type="h5" :folder_name=folder spot_file="C-region01-02.png" spot_title="白金青池" />
-            <tourist-spot title_type="h5" :folder_name=folder spot_file="C-region01-03.png" spot_title="新雪谷格蘭比羅夫滑雪場" />
-            <tourist-spot title_type="h5" :folder_name=folder spot_file="C-region01-04.png" spot_title="大通公園" />
-            <tourist-spot title_type="h5" :folder_name=folder spot_file="C-region01-05.png" spot_title="安山溪溫泉" />
+            <tourist-spot title_type="h5" :folder_name=folder spot_file="C-region05-02.png" spot_title="夕日浦海岸" />
+            <tourist-spot title_type="h5" :folder_name=folder spot_file="C-region05-03.png" spot_title="蘭島" />
+            <tourist-spot title_type="h5" :folder_name=folder spot_file="C-region05-04.png" spot_title="姬路城" />
+            <tourist-spot title_type="h5" :folder_name=folder spot_file="C-region05-05.png" spot_title="竹田成跡" />
           </div>
         </div>
       </div>
@@ -185,30 +185,30 @@ export default {
     const food_contents = [
       {
         id: 1,
-        title: '湯咖哩',
-        content: '一般而言，日本的咖哩較為濃稠，不過北海道的當地美食「湯咖哩」，則是一種湯湯水水的咖哩。你可以在日本各地找到湯咖哩的店家，不過說到其起源，其實正是湯咖哩店林立的札幌。北海道的湯咖哩大多採用北海道所生產的新鮮蔬菜，大塊的食材保證會讓你驚嘆不已！而且裡頭還會放進肉類或魚類，例如豬肉角煮、香辣雞肉、牛筋等，吃起來口感十足。',
-        imgSrc: 'D-region01-01.png',
+        title: '近江牛',
+        content: '日本歷史最久的肉用牛，與松阪牛、神戶牛並稱為日本三大和牛之一。擁有細緻、光滑的肉質，還有不油膩的甘美脂肪，以及芳醇的香味。 一年只能出產6,000頭的認定近江牛，目前的流通極其有限，高品質控管，直接反應在牛肉的纖細美味上。 在沒有食肉習慣的江戶時代，以藥的名義獻給將軍的近江牛味噌漬已經為人認識。',
+        imgSrc: 'D-region05-01.png',
         isReverse: false,
       },
       {
         id: 2,
-        title: '石狩鍋',
-        content: '石狩鍋是將新鮮鮭魚或鱒魚、魚骨以及高麗菜或洋蔥等蔬菜，加入使用味噌調味後的昆布高湯中的火鍋料理。 起源是來自於石狩地區漁夫們的伙食餐，據傳當時將捕獲到的新鮮鮭魚切塊後放進味噌湯中享用，進而演變傳承至今的石狩鍋。',
-        imgSrc: 'D-region01-02.png',
+        title: '湯豆腐',
+        content: '日式傳統的京都湯豆腐，食材有豆腐、柴魚湯、昆布、醬油、沾料。 湯豆腐的煮器相當的考究，使用檜木包覆，醬油壺與湯頭一同加熱，在烹煮過程中，由圖片中的小煙囪冒出香氣，會有淡淡的檜木香氣。 現在現在煮器逐漸被其它簡易的容器所取代。',
+        imgSrc: 'D-region05-02.png',
         isReverse: true,
       },
       {
         id: 3,
-        title: 'ルイベ(Ruibe)',
-        content: '這道料理是背負著北海道鮭魚跟愛奴人歷史的一道鄉土料理，將天然鮭魚冷凍後在冷凍狀態下食用的生魚片。據說是過去人們在冬季捕魚後，會將鮭魚埋進厚厚的冰雪裡保存，因低溫有滅菌效果，所以能直接生吃。',
-        imgSrc: 'D-region01-03.png',
+        title: '鯡魚蕎麥麵',
+        content: '把鯡魚內臟清理乾淨後將魚肉乾燥而成，經過泡軟後再用醬油、砂糖、味醂、清酒等等來燉煮，放入溫熱的蕎麥麵後完成的食物。 古早時期的京都因為很難取得新鮮的漁獲，因此從北海道運來的身欠鯡魚就成為很重要的蛋白質來源。',
+        imgSrc: 'D-region05-03.png',
         isReverse: false,
       },
       {
         id: 4,
-        title: '墨魚飯',
-        content: '北海道墨魚飯深黑的色澤令人印象深刻，獨特的墨魚風味與糯米飯相融合，帶來濃郁口感和美味。但墨魚飯其實是發源於從前日本人把沒什麼利用價值的小型墨魚填入戰時配給的米糧，做成既節省又能填飽肚子的「小型便當」。',
-        imgSrc: 'D-region01-04.png',
+        title: '生八橋',
+        content: '特徵 做為煎餅的一種，主要作法是將米粉、砂糖、錫蘭肉桂混和蒸煮，接著將做薄、長方形的麵糊煎烤。 形狀像日本古箏，長軸中心部位向上凸起彎曲。 至於「生八橋」是食材在蒸煮過後直接以一定尺寸分切，於1960年代開始販賣的新產品，也有切成正方形、對角線折起將餡料包入的生八橋，特別是後者的類型有相當多變化。',
+        imgSrc: 'D-region05-04.png',
         isReverse: true,
       },
     ];
@@ -228,7 +228,7 @@ export default {
 @import '@/assets/css/font.scss'; //font scss
 
 .container-fluid {
-  background-image: url('@/assets/images/area_page/content/banner-region01.png');
+  background-image: url('@/assets/images/area_page/content/banner-region05.png');
   background-repeat: no-repeat;
   background-position: center center;
 
