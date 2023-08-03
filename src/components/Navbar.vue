@@ -14,10 +14,17 @@
             <!-- 筆電尺寸以上 -->
             <div class="d-none d-lg-flex">
               <ul class="" id="nav-menu">
-                <li class="nav-item"><router-link to="/area">區域風景</router-link></li>
-                <li class="nav-item"><router-link to="/season">季節景點</router-link></li>
-                <!-- <li class="nav-item"><router-link to="/">文化風采</router-link></li> -->
-                <li class="nav-item"><router-link to="/about">關於我們</router-link></li>
+                <li class="nav-item"><router-link to="/area" class="first-link">區域風景</router-link></li>
+                <li class="nav-item drop-menu">
+                  <a href="" @click.prevent="" class="first-link">季節景點</a>
+                  <ul class="shadow">
+                    <li><router-link to="/season/spring">春天</router-link></li>
+                    <li><router-link to="">夏天</router-link></li>
+                    <li><router-link to="">秋天</router-link></li>
+                    <li><router-link to="/season/winter">冬天</router-link></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><router-link to="/about" class="first-link">關於我們</router-link></li>
               </ul>
             </div>
 
@@ -46,7 +53,7 @@
       <div class="d-lg-none">
         <ul id="toggle-menu">
           <li class="nav-item"><router-link to="/area">區域風景</router-link></li>
-          <li class="nav-item"><router-link to="/season">季節景點</router-link></li>
+          <li class="nav-item drop-menu"><router-link to="">季節景點</router-link></li>
           <li class="nav-item"><router-link to="/about">關於我們</router-link></li>
         </ul>
       </div>
@@ -164,7 +171,7 @@ $navlink-color: rgb(255, 255, 255);
         margin: 0 auto;
       }
 
-      a {
+      .first-link {
         color: $nav-font-color;
         font-weight: 500;
         font-size: 1.1rem;
@@ -181,7 +188,39 @@ $navlink-color: rgb(255, 255, 255);
         }
       }
     }
-
+    .drop-menu {
+      position: relative;
+      &:hover {
+        ul {
+          display: block;
+        }
+      }
+      ul {
+        top: 55px;
+        display: none;
+        z-index: 999;
+        position: absolute;
+        list-style: none;
+        flex-direction: column;
+        width: 100%;
+        li {
+          padding: 10px;
+          background-color: white;
+          a {
+            display: block;
+            text-decoration: none;
+            color: $font-color;
+            width: 100%;
+          }
+          &:hover {
+            background-color: $primary-color;
+            a {
+              color: white;
+            }
+          }
+        }
+      }
+    }
     .active {
       &::after {
         width: 80%;

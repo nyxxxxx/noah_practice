@@ -69,7 +69,7 @@
         <div class="row mb-4">
           <!-- 大圖 -->
           <div class="col-sm-12 col-md mb-3">
-            <tourist-spot title_type="h4" :folder_name=folder spot_file="C-body06.png" spot_title="伏見稻荷大社" />
+            <tourist-spot title_type="h4" :folder_name=folder spot_file="C-body06.png" spot_title="伏見稻荷大社" router_name="/area/kansai/kyoto" />
           </div>
           <!-- 小圖*4 -->
           <div class="col-sm-12 col-md">
