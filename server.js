@@ -14,7 +14,9 @@ console.log('進入讀取程式碼')
 
 // 處理檔案目錄讀取的路由
 app.get('/files', (req, res) => {
-  const directoryPath = './src/assets/images/season/spring'; // 請替換為您想要讀取的目錄路徑
+  const season =req.query.season
+  // console.log(season);
+  const directoryPath = `./src/assets/images/season/${season}`; // 請替換為您想要讀取的目錄路徑
   // 讀取目錄下的檔案清單
   fs.readdir(directoryPath, (err, files) => {
     if (err) {

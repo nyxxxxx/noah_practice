@@ -22,7 +22,7 @@
                 <img :src="getImgUrl(item.bigImgSrc)" alt="" class="news-img w-100 rounded">
               </router-link>
             </div>
-            <h4 class="fourth-title news-title">{{ item.bigTitle }}</h4>
+            <h4 class="fourth-title news-title" style="margin-top: 0.5rem;">{{ item.bigTitle }}</h4>
             <span class="news-date">{{ item.bigDate }}</span>
             <p>{{ item.bigContent }}</p>
 
@@ -69,7 +69,7 @@
         <div class="row mb-4">
           <!-- 大圖 -->
           <div class="col-sm-12 col-md mb-3">
-            <tourist-spot title_type="h4" :folder_name=folder spot_file="C-body06.png" spot_title="伏見稻荷大社" />
+            <tourist-spot title_type="h4" :folder_name=folder spot_file="C-body06.png" spot_title="伏見稻荷大社" router_name="/area/kansai/kyoto" />
           </div>
           <!-- 小圖*4 -->
           <div class="col-sm-12 col-md">
@@ -169,7 +169,7 @@ export default {
 
 //banner-div css
 .banner-div {
-  margin: 30px 0;
+  margin-bottom: 100px;
 }
 
 //title-cumtom css
@@ -186,7 +186,7 @@ export default {
 
 // A-div css
 .A-div {
-  margin: 30px 0;
+  margin-bottom: 100px;
 
   .A-body {
     .img-box {
@@ -218,13 +218,8 @@ export default {
   }
 }
 
-// B-div css
-.B-div {
-  margin: 30px 0;
-}
-
 // C-div css
 .C-div {
-  margin: 30px 0;
+  margin-bottom: 100px;
 }
 </style>

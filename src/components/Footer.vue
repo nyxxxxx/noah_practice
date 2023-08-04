@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid gx-0">
+  <div class="container-fluid gx-0" style="margin-top: 75px;">
     <div class="footer">
       <div class="container">
         <div class="footer-logo-div d-flex justify-content-between">

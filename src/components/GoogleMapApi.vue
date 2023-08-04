@@ -16,6 +16,10 @@ export default {
       type: Number,
       // default: 141.00,
     },
+    marker_title: {
+      type: String,
+      // default: 141.00,
+    },
   },
   setup(props) {
     const map = ref(null);
@@ -40,13 +44,13 @@ export default {
 
         map.value = new google.maps.Map(document.getElementById("map"), {
           center: { lat, lng: lon },
-          zoom: 8,
+          zoom: 16,
         });
         // 在地圖上建立標記
         marker.value = new google.maps.Marker({
           map: map.value,
           position: { lat, lng: lon },
-          title: "小樽市",
+          title: props.marker_title,
         });
       });
     };

@@ -131,7 +131,7 @@ export default {
         id: 5,
         region: '關西',
         regionImgSrc: 'B-body05.png',
-        regionLink: '',
+        regionLink: { name: 'area-kansai' },
         title: '滋賀 | 京都 | 大阪 | 兵庫 | 奈良 | 和歌山',
         content: '又稱近畿地方，位於本州中央略為偏西之處關西地區的總面積約為27,350平方公里，居住人口超過2,000萬人，是日本僅次於首都圈的第二大經濟圈。 關西地區北瀕日本海，西臨瀨戶內海，南面太平洋。 北部的山脈緊臨海岸，平原較少為其特色。',
         ImgSrc1: 'A-region05-01.png',

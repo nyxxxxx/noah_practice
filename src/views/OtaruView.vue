@@ -18,7 +18,7 @@
             本次將針對首次造訪小樽者，大略地介紹景點與餐廳、酒店等，讓您安心地遊覽小樽運河！</p>
         </div>
         <!-- Google Map Api -->
-        <google-map-api :lat="map_lat" :lon="map_lon"></google-map-api>
+        <google-map-api :lat="map_lat" :lon="map_lon" marker_title="小樽市"></google-map-api>
         <!-- 正文 v-for -->
         <div v-for="(item, index) in items" :key="index" class="contents mb-5" :ref="el => sectionRefs[index] = el">
           <h3 class="third-title">{{ item.title }}</h3>
@@ -147,7 +147,7 @@ export default {
         ],
       },
       {
-        title: '2. 時間不多的人只要鎖定此處即可！小樽運河觀光的基本形態',
+        title: '2. 小樽運河觀光的基本形態',
         contents: [
           {
             type: 'text',
@@ -206,7 +206,7 @@ export default {
         ],
       },
       {
-        title: '3. 想要再多了解一些！更加深入感受小樽運河風情的方式！',
+        title: '3. 深入感受小樽運河風情的方式！',
         contents: [
           {
             type: 'text',
@@ -259,7 +259,7 @@ export default {
         ],
       },
       {
-        title: '4. 想要更加深入感受小樽運河風情的人！精選4個餐飲設施及餐廳',
+        title: '4. 精選4個餐飲設施及餐廳',
         contents: [
           {
             type: 'text',
@@ -333,7 +333,7 @@ export default {
         ],
       },
       {
-        title: '5. 有3小時就能滿足！小樽運河＆小樽觀光範例行程',
+        title: '5. 有3小時就能滿足的觀光行程',
         contents: [
           {
             type: 'text',
