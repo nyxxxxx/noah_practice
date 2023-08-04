@@ -93,6 +93,7 @@ export default {
     onMounted(() => {
 
       fetchfiles();
+
     });
     //讀取資料夾內圖片檔案名稱
     const season = 'spring';
@@ -102,7 +103,6 @@ export default {
         if (!response.ok) {
           throw new Error('獲取檔案清單失敗！');
         }
-
         files.value = await response.json();
       } catch (error) {
         console.error(error.message);

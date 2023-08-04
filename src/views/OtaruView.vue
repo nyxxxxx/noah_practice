@@ -18,7 +18,7 @@
             本次將針對首次造訪小樽者，大略地介紹景點與餐廳、酒店等，讓您安心地遊覽小樽運河！</p>
         </div>
         <!-- Google Map Api -->
-        <google-map-api :lat="map_lat" :lon="map_lon" marker_title="小樽市"></google-map-api>
+        <google-map-api :lat="43.199" :lon="141.0020" marker_title="小樽運河"></google-map-api>
         <!-- 正文 v-for -->
         <div v-for="(item, index) in items" :key="index" class="contents mb-5" :ref="el => sectionRefs[index] = el">
           <h3 class="third-title">{{ item.title }}</h3>

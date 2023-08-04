@@ -114,7 +114,11 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior() {
+    // 每次切換頁面都滾動到最上方
+    return { top: 0 };
+  },
 });
 
 router.beforeEach((to, from, next) => {

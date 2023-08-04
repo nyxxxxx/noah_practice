@@ -97,6 +97,10 @@ export default {
   },
   setup(){
     onMounted(()=>{
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
       AOS.init({
         duration: 800,
         once: true,
