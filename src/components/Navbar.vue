@@ -25,6 +25,7 @@
                   </ul>
                 </li>
                 <li class="nav-item"><router-link to="/about" class="first-link">關於我們</router-link></li>
+                <li class="nav-item"><router-link to="/test" class="first-link">測試</router-link></li>
               </ul>
             </div>
 
