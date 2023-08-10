@@ -1,5 +1,6 @@
 <template>
   <nav-bar></nav-bar>
+  <Canvas :imagePath="imagePath"></Canvas>
   <div class="container-fluid banner-div">
     <div class="container d-flex align-items-center h-100">
       <h1 class="banner-title">雪舞冬日 梅花盛放</h1>
@@ -48,10 +49,12 @@
 import NavBar from '@/components/Navbar.vue';//navbar
 import Footer from '@/components/Footer.vue';//footer
 import BreadCrumb from '@/components/BreadCrumb.vue';
+import Canvas from '@/components/Canvas.vue';
 import { ref, onMounted, nextTick, } from 'vue';
 export default {
   name: 'TestView',
   components: {
+    Canvas,
     NavBar,
     Footer,
     BreadCrumb,
@@ -112,6 +115,8 @@ export default {
     function getImageUrl(filename) {
       return require(`@/assets/images/season/${season}/${filename}`);
     }
+    //Canvas圖案路徑props值
+    const imagePath = 'winter';
     return {
       titleElement,
       titleHeight,
@@ -119,6 +124,7 @@ export default {
       imgHeight,
       getImageUrl,
       files,
+      imagePath,
     };
   },
 };
