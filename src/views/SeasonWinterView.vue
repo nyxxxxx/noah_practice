@@ -50,7 +50,7 @@ import NavBar from '@/components/Navbar.vue';//navbar
 import Footer from '@/components/Footer.vue';//footer
 import BreadCrumb from '@/components/BreadCrumb.vue';
 import Canvas from '@/components/Canvas.vue';
-import { ref, onMounted, nextTick, } from 'vue';
+import { ref, onMounted, nextTick, onBeforeMount } from 'vue';
 export default {
   name: 'TestView',
   components: {
@@ -93,7 +93,7 @@ export default {
     //瀑布流部分
     var files = ref([]);
 
-    onMounted(() => {
+    onBeforeMount(() => {
 
       fetchfiles();
     });

@@ -29,5 +29,5 @@ app.get('/files', (req, res) => {
 
 // 啟動伺服器
 app.listen(port, () => {
-  console.log(`伺服器在 http://localhost:${port} 上運行。`);
+  console.log(`伺服器在運行。`);
 });

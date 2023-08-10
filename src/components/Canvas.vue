@@ -17,15 +17,14 @@ export default {
     var img = new Image();
     img.width = 30;
     img.height = 30;
-    onBeforeMount(()=>{
-      if(props.imagePath == 'spring') {
-        img.src = springImage ;
+    onBeforeMount(() => {
+      if (props.imagePath == 'spring') {
+        img.src = springImage;
       }
-      else if(props.imagePath == 'winter') {
+      else if (props.imagePath == 'winter') {
         img.src = winterImage;
       }
     });
-    // img.src = path;
     //全螢幕 黑底canvas
     img.onload = function () {
 
@@ -39,7 +38,7 @@ export default {
       // WIDTH = window.innerWidth;
       // HEIGHT = window.innerHeight;
       WIDTH = document.documentElement.scrollWidth;
-      HEIGHT = document.documentElement.scrollHeight;
+      HEIGHT = document.documentElement.scrollHeight+800;
 
       canvas.width = WIDTH;
       canvas.height = HEIGHT;
@@ -78,7 +77,7 @@ export default {
         // 旋轉粒子
         // this.rotation += this.rDir * (Math.PI / 180);
         this.r += this.rDir * (Math.PI / 180);
-        if (this.y >= HEIGHT + 10) {//超出頁面長度
+        if (this.y >= HEIGHT + 1900) {//超出頁面長度
           this.y = -10;//重置Y座標
         }
         else if (this.x <= -10) {//超出頁面左邊
