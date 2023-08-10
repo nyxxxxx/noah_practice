@@ -14,7 +14,7 @@ export default {
     imagePath: String,
   },
   setup(props) {
-    var img = new Image();
+    var img = new Image();//粒子圖片
     img.width = 30;
     img.height = 30;
     onBeforeMount(() => {
@@ -25,20 +25,20 @@ export default {
         img.src = winterImage;
       }
     });
-    //全螢幕 黑底canvas
+
+
+
     img.onload = function () {
 
       var canvas = document.getElementById('canvas'),
         content = canvas.getContext('2d'),
-        round = [],
+        round = [],//粒子陣列
         WIDTH,
         HEIGHT;
 
-      const initRoundPopulation = 50;
-      // WIDTH = window.innerWidth;
-      // HEIGHT = window.innerHeight;
+      const initRoundPopulation = 50;//粒子數量
       WIDTH = document.documentElement.scrollWidth;
-      HEIGHT = document.documentElement.scrollHeight+800;
+      HEIGHT = document.documentElement.scrollHeight;
 
       canvas.width = WIDTH;
       canvas.height = HEIGHT;
@@ -48,14 +48,11 @@ export default {
         this.index = index;
         this.x = x;//X座標
         this.y = y;//Y座標
-        this.x_dir = Math.random() < 0.5 ? true : false;
-        this.x_speed = (Math.floor(Math.random() * 80) + 20) / 100; //speed range 0.2~1;
-        this.y_speed = (Math.floor(Math.random() * 80) + 20) / 100; //speed range 0.2~1;
-        // this.r = Math.random() * 2 + 1;
-        this.r = Math.random() * 6;//旋轉角度
+        this.x_dir = Math.random() < 0.5 ? true : false;//粒子向左或是向右飄
+        this.x_speed = (Math.floor(Math.random() * 80) + 20) / 100; //x方向 speed range 0.2~1;
+        this.y_speed = (Math.floor(Math.random() * 80) + 20) / 100; //y方向 speed range 0.2~1;
+        this.r = Math.random() * 6;//初始角度
         this.rDir = Math.random() < 0.5 ? 1 : -1; // 隨機設置旋轉方向為1或-1
-        let alpha = (Math.floor(Math.random() * 10) + 1) / 10 / 2;
-        this.color = "rgba(47,39,153," + alpha + ")";
       }
 
       //粒子 創建原型function
@@ -75,9 +72,8 @@ export default {
         // Y軸移動
         this.y += this.y_speed;
         // 旋轉粒子
-        // this.rotation += this.rDir * (Math.PI / 180);
         this.r += this.rDir * (Math.PI / 180);
-        if (this.y >= HEIGHT + 1900) {//超出頁面長度
+        if (this.y >= HEIGHT) {//超出頁面長度
           this.y = -10;//重置Y座標
         }
         else if (this.x <= -10) {//超出頁面左邊
@@ -109,7 +105,6 @@ export default {
       }
 
       Round_item_create();
-
     }
   },
 };

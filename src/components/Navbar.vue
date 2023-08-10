@@ -18,10 +18,18 @@
                 <li class="nav-item drop-menu">
                   <a href="" @click.prevent="" class="first-link">季節景點</a>
                   <ul class="shadow">
-                    <li><router-link to="/season/spring">春 天</router-link></li>
-                    <li><router-link to="">夏 天</router-link></li>
-                    <li><router-link to="">秋 天</router-link></li>
-                    <li><router-link to="/season/winter">冬 天</router-link></li>
+                    <router-link to="/season/spring">
+                      <li>春 天</li>
+                    </router-link>
+                    <router-link to="">
+                      <li>夏 天</li>
+                    </router-link>
+                    <router-link to="">
+                      <li>秋 天</li>
+                    </router-link>
+                    <router-link to="/season/winter">
+                      <li>冬 天</li>
+                    </router-link>
                   </ul>
                 </li>
                 <li class="nav-item"><router-link to="/about" class="first-link">關於我們</router-link></li>
@@ -215,21 +223,15 @@ $navlink-color: rgb(255, 255, 255);
         flex-direction: column;
         width: 100%;
 
-        li {
-          padding: 10px;
-          background-color: white;
+        a {
 
-          a {
-            display: block;
-            text-decoration: none;
+          text-decoration: none;
+          li {
+            padding: 10px;
+            background-color: white;
             color: $font-color;
-            width: 100%;
-          }
-
-          &:hover {
-            background-color: $primary-color;
-
-            a {
+            &:hover {
+              background-color: $primary-color;
               color: white;
             }
           }
@@ -313,6 +315,7 @@ $navlink-color: rgb(255, 255, 255);
       font-size: 1.1rem;
     }
   }
+
   .drop-menu {
     ul {
       list-style: none;

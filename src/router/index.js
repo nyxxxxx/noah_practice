@@ -29,6 +29,7 @@ const routes = [
     path: '/season',
     name: 'season',
     meta: { title: '季節景點' },
+    redirect: {name: 'season-spring'},
     children: [
     {
       path: 'spring',

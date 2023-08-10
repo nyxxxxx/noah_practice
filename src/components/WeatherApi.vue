@@ -19,7 +19,6 @@
         </div>
       </div>
     </div>
-    <!-- <p> {{ weather.location.name}}</p> -->
   </div>
 </template>
 
