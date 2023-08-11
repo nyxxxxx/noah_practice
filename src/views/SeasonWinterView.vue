@@ -138,6 +138,15 @@ export default {
 
 $logo-color: #4294FF;
 
+.title {
+  color: $primary-color;
+  margin-bottom: 30px;
+
+  img {
+    vertical-align: initial;
+    margin-right: 1rem;
+  }
+}
 .banner-div {
   height: 550px;
   background-image: url('@/assets/images/season/winter/winter-banner.png');

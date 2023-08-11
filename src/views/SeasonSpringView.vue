@@ -142,6 +142,15 @@ export default {
 
 $logo-color: #F787A7;
 
+.title {
+  color: $primary-color;
+  margin-bottom: 30px;
+
+  img {
+    vertical-align: initial;
+    margin-right: 1rem;
+  }
+}
 .banner-div {
   height: 550px;
   background-image: url('@/assets/images/season/spring/spring-banner.png');
